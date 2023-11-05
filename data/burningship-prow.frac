@@ -1,0 +1,8 @@
+# Burning Ship fractal zoomed in to very tip at the front
+# You'll need to implement this formula yourself so your program can produce this image
+type: burningship
+centerx: 1.80
+centery: 0
+axislength: 0.2
+pixels: 768
+iterations: 96
