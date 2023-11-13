@@ -3,8 +3,9 @@
 | Date       | Time Spent | Events
 |------------|------------|--------------------
 | November 9 | .25 hour   | Scanned over code and instructions.
-| November 10|  1 hour    | Read over requirements and code more closely. Worked on Phase 0. Took the starter code quiz.
-| TOTAL      | .25 hours  | *Your TOTAL should agree with your daily entries*
+| November 10| 1 hour     | Read over requirements and code more closely. Worked on Phase 0. Took the starter code quiz.
+| November 11| .25 hour   | Finished Phase 0.
+| TOTAL      | 1.5 hours  | *Your TOTAL should agree with your daily entries*
 
 
 ## Sprint Signature 4.1
