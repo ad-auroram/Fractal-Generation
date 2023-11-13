@@ -26,6 +26,25 @@ If you find a code smell that is not on this list, please add it to your report.
 0.  **Magic** numbers
     *   These are literal values used in critical places without any context or meaning
     *   "Does the `256` right here have anything to do with the `256` over there?"
+
+This example is located in mbrot_fractal.py in the paint and the pixelsWrittenSoFar methods, 
+these specific instances are lines 248-249 and 276-277.
+The number 512 is repeatedly used for multiple calculations and loops. I think it has something to do with the 
+image size, but it's just on its own and not assigned to any variable.
+
+```commandline
+    for row in range(512, 0, -1):
+        cc = []
+        for col in range(512):
+```
+
+```commandline
+portion = (512 - rows) / 512
+    pixels = (512 - rows) * 512
+```
+To fix this, I'll figure out what it's supposed to represent (or even if it all refers to the same thing) and assign 
+it to a variable to make things more understandable.
+
 1.  **Global** variables
     *   Used to avoid passing a parameter into a function
     *   Used to return an extra value from a function
