@@ -106,11 +106,23 @@ Instead of 102, it could even be something like len(palette)+1, so then the numb
 4.  **Too many** arguments
     *   Seen when more than a handful of parameters are passed to a function/method
     *   Parameters that are passed in but never used
+
+This example is from phoenix_fractal.pu line 128.
+
+Only 5 of the <del>letters</del> parameters are actually used in the method, the rest are unnecessary.
+```commandline
+def makePictureOfFractal(f, i, e, w, g, p, W, a, b, s):
+```
+Extra parameters will be deleted, and ones that are used will be renamed (also an example of poorly-named identifiers).
+
 5.  Function/Method that is **too long**
     *   Too many lines of code typically happens because the function/method has too many different responsibilities
     *   Generally, a method longer than a dozen lines should make you ask yourself these questions
         *   "Does one function really need to do all of this work?"
         *   "Could I split this into smaller, more focused pieces?"
+
+
+
 6.  **Redundant** code
     *   A repeated statement which doesn't have an effect the second time
     *   Ask yourself whether it makes any difference to be run more than once
@@ -119,6 +131,17 @@ Instead of 102, it could even be something like len(palette)+1, so then the numb
         print(i)
         i = 7
         ```
+        
+From phoenix_fractal.py lines 159-161.
+
+Larry does not have his reasons. This is being unnecessarily repeated.
+```commandline
+    tk_Interface_PhotoImage_canvas_pixel_object.pack()  # This seems repetitive
+    tk_Interface_PhotoImage_canvas_pixel_object.pack()  # But it is how Larry wrote it the tutorial
+    tk_Interface_PhotoImage_canvas_pixel_object.pack()  # Larry's a smart guy.  I'm sure he has his reasons.
+```
+Repeated lines will be deleted.
+
 7.  Decision tree that is **too complex**
     *   Too long or deeply nested trees of `if/elif/else`
     *   Are all of the branches truly necessary?
