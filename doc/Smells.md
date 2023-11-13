@@ -29,6 +29,7 @@ If you find a code smell that is not on this list, please add it to your report.
 
 This example is located in mbrot_fractal.py in the paint and the pixelsWrittenSoFar methods, 
 these specific instances are lines 248-249 and 276-277.
+
 The number 512 is repeatedly used for multiple calculations and loops. I think it has something to do with the 
 image size, but it's just on its own and not assigned to any variable.
 
@@ -50,6 +51,19 @@ it to a variable to make things more understandable.
     *   Used to return an extra value from a function
     *   There are better ways to meet both of these needs!
     *   *Note, this does not apply to global `CONSTANTS`!*
+
+This example is on lines 68 and 69 of phoenix_fractal.py.
+
+grad is called a few times in various places, I believe it refers to the color palette in the module. win is assigned 
+as Tk() and is only ever called in one method.
+```commandline
+    global grad
+    global win
+```
+To fix this, I'll have win be a variable just for the method it's used in. Both variables will also be renamed. There's 
+definitely a better way to call the color palette than a global, so I'll figure that out too.
+
+
 2.  **Poorly-named** identifiers
     *   Variable names should strike a good balance between brevity and descriptiveness
     *   Short variable names are okay in some situations:
@@ -59,12 +73,25 @@ it to a variable to make things more understandable.
     *   Variables with really, really long names make code harder to read
     *   Variables that override or "shadow" other identifiers
         *   Builtin Python functions such as `input`, `len`, `list`, `max`, `min` and `sum` are especially susceptible to this
+
+While there are examples throughout this code, this example is from main.py lines 82-84.
+
+These variables use the names of builtin Python functions.
+```commandline
+    quit = False                                           #######
+    next = ''                                              #######
+    iter = 0
+```
+To fix, they'll get renamed (if they're even needed).
+
 3.  **Bad** Comments
     *   Comments are condiments for code; a small amount can enhance a meal, but too much ruins it
     *   Strive to write clear, self-documenting code that speaks for itself; when a line needs an explanatory comment to be understood, it indicates that identifier names were poorly chosen
     *   Delete obsolete remarks that no longer accurately describe the situation
     *   The same goes for blocks of commented-out code that serve no purpose and clutter up the file
     *   Programmers sometimes vent their frustration with snarky or vulgar comments; these add no value, are unprofessional and embarrassing, and only serve to demoralize maintainers
+
+
 4.  **Too many** arguments
     *   Seen when more than a handful of parameters are passed to a function/method
     *   Parameters that are passed in but never used
