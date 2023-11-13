@@ -91,6 +91,17 @@ To fix, they'll get renamed (if they're even needed).
     *   The same goes for blocks of commented-out code that serve no purpose and clutter up the file
     *   Programmers sometimes vent their frustration with snarky or vulgar comments; these add no value, are unprofessional and embarrassing, and only serve to demoralize maintainers
 
+This example is from phoenix_fractal.py lines 90-93.
+
+They don't serve any purpose, it's just vent comments about how they don't like how python does things.
+```commandline
+# I want to use 101 here because that's the number of colors in the
+    # palette.  Except range() wants its number to be one more than the number
+    # that YOU want.
+    for i in range(102):# <--not cool, PYTHON WHY CAN'T YOU BE BEAUTIFUL LIKE MATH?
+```
+These comments will be deleted (or edited to be more helpful, like just stating the number needs to be one more than expected).
+Instead of 102, it could even be something like len(palette)+1, so then the number is less confusing.
 
 4.  **Too many** arguments
     *   Seen when more than a handful of parameters are passed to a function/method
