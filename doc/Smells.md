@@ -154,6 +154,23 @@ Repeated lines will be deleted.
     *   Conditional statements with long, confusing Boolean expressions
     *   Boolean expressions expressing double negatives; ex. `if not undone: ...`
     *   Code that makes you say "It would be easier to rewrite this than to understand it"
+    
+    Lines 79-85 of main.py
+This whole section of code is confusing with things getting reassigned every few lines and variables having bad names.
+
+This example specifically has some confusing booleans, with badly named variables that only further the confusion.
+```commandline
+if not arg_is_phoneix and sysargv1_not_mndlbrt_frctl == 0:
+    print("ERROR:", sys.argv[1], "is not a valid fractal")    #
+    print("Please choose one of the following:")             ###
+    quit = False                                           #######
+    next = ''                                              #######
+    iter = 0                                                #####
+while not quit:      
+```
+I'll probably be rewriting most if not all of main.py honestly. It would be easier to understand at least.
+"while not quit" could be "while True", the if statement could be written in a much less confusing way.
+
 9.  **Dead** code
     *   Modules that are imported but not used
     *   Variables that are declared but not used
