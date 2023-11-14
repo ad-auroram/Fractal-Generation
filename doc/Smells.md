@@ -27,41 +27,12 @@ If you find a code smell that is not on this list, please add it to your report.
     *   These are literal values used in critical places without any context or meaning
     *   "Does the `256` right here have anything to do with the `256` over there?"
 
-This example is located in mbrot_fractal.py in the paint and the pixelsWrittenSoFar methods, 
-these specific instances are lines 248-249 and 276-277.
-
-The number 512 is repeatedly used for multiple calculations and loops. I think it has something to do with the 
-image size, but it's just on its own and not assigned to any variable.
-
-```commandline
-    for row in range(512, 0, -1):
-        cc = []
-        for col in range(512):
-```
-
-```commandline
-portion = (512 - rows) / 512
-    pixels = (512 - rows) * 512
-```
-To fix this, I'll figure out what it's supposed to represent (or even if it all refers to the same thing) and assign 
-it to a variable to make things more understandable.
 
 1.  **Global** variables
     *   Used to avoid passing a parameter into a function
     *   Used to return an extra value from a function
     *   There are better ways to meet both of these needs!
     *   *Note, this does not apply to global `CONSTANTS`!*
-
-This example is on lines 68 and 69 of phoenix_fractal.py.
-
-grad is called a few times in various places, I believe it refers to the color palette in the module. win is assigned 
-as Tk() and is only ever called in one method.
-```commandline
-    global grad
-    global win
-```
-To fix this, I'll have win be a variable just for the method it's used in. Both variables will also be renamed. There's 
-definitely a better way to call the color palette than a global, so I'll figure that out too.
 
 
 2.  **Poorly-named** identifiers
@@ -74,15 +45,6 @@ definitely a better way to call the color palette than a global, so I'll figure 
     *   Variables that override or "shadow" other identifiers
         *   Builtin Python functions such as `input`, `len`, `list`, `max`, `min` and `sum` are especially susceptible to this
 
-While there are examples throughout this code, this example is from main.py lines 82-84.
-
-These variables use the names of builtin Python functions.
-```commandline
-    quit = False                                           #######
-    next = ''                                              #######
-    iter = 0
-```
-To fix, they'll get renamed (if they're even needed).
 
 3.  **Bad** Comments
     *   Comments are condiments for code; a small amount can enhance a meal, but too much ruins it
@@ -91,29 +53,11 @@ To fix, they'll get renamed (if they're even needed).
     *   The same goes for blocks of commented-out code that serve no purpose and clutter up the file
     *   Programmers sometimes vent their frustration with snarky or vulgar comments; these add no value, are unprofessional and embarrassing, and only serve to demoralize maintainers
 
-This example is from phoenix_fractal.py lines 90-93.
-
-They don't serve any purpose, it's just vent comments about how they don't like how python does things.
-```commandline
-# I want to use 101 here because that's the number of colors in the
-    # palette.  Except range() wants its number to be one more than the number
-    # that YOU want.
-    for i in range(102):# <--not cool, PYTHON WHY CAN'T YOU BE BEAUTIFUL LIKE MATH?
-```
-These comments will be deleted (or edited to be more helpful, like just stating the number needs to be one more than expected).
-Instead of 102, it could even be something like len(palette)+1, so then the number is less confusing.
 
 4.  **Too many** arguments
     *   Seen when more than a handful of parameters are passed to a function/method
     *   Parameters that are passed in but never used
 
-This example is from phoenix_fractal.pu line 128.
-
-Only 5 of the <del>letters</del> parameters are actually used in the method, the rest are unnecessary.
-```commandline
-def makePictureOfFractal(f, i, e, w, g, p, W, a, b, s):
-```
-Extra parameters will be deleted, and ones that are used will be renamed (also an example of poorly-named identifiers).
 
 5.  Function/Method that is **too long**
     *   Too many lines of code typically happens because the function/method has too many different responsibilities
@@ -121,22 +65,6 @@ Extra parameters will be deleted, and ones that are used will be renamed (also a
         *   "Does one function really need to do all of this work?"
         *   "Could I split this into smaller, more focused pieces?"
 
-From phoenix_fractal.py, in the makePictureOfFractal method, there's too many things going on at once. I believe it's
-both making the window and looping through pixels to make the image. That with the long blocks of comments make this
-method go on forever (128-214, 86 lines for one method!).
-```commandline
- # Display the image on the screen
-    tk_Interface_PhotoImage_canvas_pixel_object = Canvas(win, width=s, height=s, bg=W)
-    ...
-```
-```
-        while r in range(s, 0, -1):
-        # for c (c == column) in the range of pixels in a square of size s
-        cs = []
-        for c in range(s):
-```
-There's a lot of comments and dead code between these snippets. They'll be split into two methods (at least) and any 
-dead code or bad comments will be deleted.
 
 6.  **Redundant** code
     *   A repeated statement which doesn't have an effect the second time
@@ -146,16 +74,6 @@ dead code or bad comments will be deleted.
         print(i)
         i = 7
         ```
-        
-From phoenix_fractal.py lines 159-161.
-
-Larry does not have his reasons. This is being unnecessarily repeated.
-```commandline
-    tk_Interface_PhotoImage_canvas_pixel_object.pack()  # This seems repetitive
-    tk_Interface_PhotoImage_canvas_pixel_object.pack()  # But it is how Larry wrote it the tutorial
-    tk_Interface_PhotoImage_canvas_pixel_object.pack()  # Larry's a smart guy.  I'm sure he has his reasons.
-```
-Repeated lines will be deleted.
 
 7.  Decision tree that is **too complex**
     *   Too long or deeply nested trees of `if/elif/else`
@@ -163,23 +81,6 @@ Repeated lines will be deleted.
     *   Can all branches even be reached?
     *   Has every branch been tested?
 
-From mbrot_fractal.py lines 157-172 (removing comment lines to show example).
-The if statements keep going and moving the code farther and farther to the right.
-```commandline
-    if palette is not None:
-        import builtins
-        len = builtins.len
-        len = len(palette)
-        global TWO
-        for iter in range(len):
-            z = z * z + c  # Get z1, z2, ...
-            if abs(z) > TWO:
-                z = float(TWO)
-                import builtins
-                len = builtins.len
-                if iter >= len(palette)
-```
-I'll see if I can simplify the tree, I'll definitely be renaming some variables and getting rid of others in here though.
 
 8.  **Spaghetti** code
     *   Heaps of meandering code without a clear goal
@@ -188,34 +89,8 @@ I'll see if I can simplify the tree, I'll definitely be renaming some variables 
     *   Conditional statements with long, confusing Boolean expressions
     *   Boolean expressions expressing double negatives; ex. `if not undone: ...`
     *   Code that makes you say "It would be easier to rewrite this than to understand it"
-    
-Lines 79-85 of main.py
-
-This whole section of code is confusing with things getting reassigned every few lines and variables having bad names.
-
-This example specifically has some confusing booleans, with badly named variables that only further the confusion.
-```commandline
-if not arg_is_phoneix and sysargv1_not_mndlbrt_frctl == 0:
-    print("ERROR:", sys.argv[1], "is not a valid fractal")    #
-    print("Please choose one of the following:")             ###
-    quit = False                                           #######
-    next = ''                                              #######
-    iter = 0                                                #####
-while not quit:      
-```
-This one (lines 104-110) is really hard to read too.
-```commandline
-        if PHOENX[iter] =='shrimp-cocktail':    ######################### ####
-            if MBROTS[i]  == 'starfish':       ### #  ## ##############   #
-                                              #             #####
-                i = i + 1                                  #######
-                exit = PHOENX[iter] =='shrimp-cocktail'    #######
-                i -= 1 #need to back off, else index error   ###
-                exit = exit and MBROTS[i]  == 'starfish'      #
-```
-I'll probably be rewriting most if not all of main.py honestly. It would be easier to understand at least.
-"while not quit" could be "while True", the if statement could be written in a much less confusing way.
  
+
 9.  **Dead** code
     *   Modules that are imported but not used
     *   Variables that are declared but not used
@@ -244,19 +119,6 @@ I'll probably be rewriting most if not all of main.py honestly. It would be easi
             *   Some programmers may keep these functions "just in case" they are needed again
             *   We don't do this at DuckieCorp because we have Git; if we ever need to recover that function, we can find it in the repo's history
 
-From phoenix_fractal lines 24-29.
-
-The only imports used from this list are sys and time. You only need to import things you're actually using, otherwise it's
-unnecessary clutter.
-```commandline
-# These are the imports that I usually import
-import turtle
-import os
-import os.path
-import sys
-import time
-```
-Unused import statements will be deleted.
 
 ### Template
 
@@ -281,4 +143,158 @@ Unused import statements will be deleted.
 
 ## Code Smells Report
 
-*TODO: Replace this note with your report*
+### 0
+This example is located in mbrot_fractal.py in the paint and the pixelsWrittenSoFar methods, 
+these specific instances are lines 248-249 and 276-277.
+
+The number 512 is repeatedly used for multiple calculations and loops. I think it has something to do with the 
+image size, but it's just on its own and not assigned to any variable.
+
+```commandline
+    for row in range(512, 0, -1):
+        cc = []
+        for col in range(512):
+```
+
+```commandline
+portion = (512 - rows) / 512
+    pixels = (512 - rows) * 512
+```
+To fix this, I'll figure out what it's supposed to represent (or even if it all refers to the same thing) and assign 
+it to a variable to make things more understandable.
+
+### 1
+This example is on lines 68 and 69 of phoenix_fractal.py.
+
+grad is called a few times in various places, I believe it refers to the color palette in the module. win is assigned 
+as Tk() and is only ever called in one method.
+```commandline
+    global grad
+    global win
+```
+To fix this, I'll have win be a variable just for the method it's used in. Both variables will also be renamed. There's 
+definitely a better way to call the color palette than a global, so I'll figure that out too.
+
+### 2
+While there are examples throughout this code, this example is from main.py lines 82-84.
+
+These variables use the names of builtin Python functions.
+```commandline
+    quit = False                                           #######
+    next = ''                                              #######
+    iter = 0
+```
+To fix, they'll get renamed (if they're even needed).
+### 3
+This example is from phoenix_fractal.py lines 90-93.
+
+They don't serve any purpose, it's just vent comments about how they don't like how python does things.
+```commandline
+# I want to use 101 here because that's the number of colors in the
+    # palette.  Except range() wants its number to be one more than the number
+    # that YOU want.
+    for i in range(102):# <--not cool, PYTHON WHY CAN'T YOU BE BEAUTIFUL LIKE MATH?
+```
+These comments will be deleted (or edited to be more helpful, like just stating the number needs to be one more than expected).
+Instead of 102, it could even be something like len(palette)+1, so then the number is less confusing.
+
+### 4
+
+This example is from phoenix_fractal.py line 128.
+
+Only 5 of the <del>letters</del> parameters are actually used in the method, the rest are unnecessary.
+```commandline
+def makePictureOfFractal(f, i, e, w, g, p, W, a, b, s):
+```
+Extra parameters will be deleted, and ones that are used will be renamed (also an example of poorly-named identifiers).
+
+### 5
+
+From phoenix_fractal.py, in the makePictureOfFractal method, there's too many things going on at once. I believe it's
+both making the window and looping through pixels to make the image. That with the long blocks of comments make this
+method go on forever (128-214, 86 lines for one method!).
+```commandline
+ # Display the image on the screen
+    tk_Interface_PhotoImage_canvas_pixel_object = Canvas(win, width=s, height=s, bg=W)
+    ...
+```
+```
+        while r in range(s, 0, -1):
+        # for c (c == column) in the range of pixels in a square of size s
+        cs = []
+        for c in range(s):
+```
+There's a lot of comments and dead code between these snippets. They'll be split into two methods (at least) and any 
+dead code or bad comments will be deleted.
+### 6
+From phoenix_fractal.py lines 159-161.
+
+Larry does not have his reasons. This is being unnecessarily repeated.
+```commandline
+    tk_Interface_PhotoImage_canvas_pixel_object.pack()  # This seems repetitive
+    tk_Interface_PhotoImage_canvas_pixel_object.pack()  # But it is how Larry wrote it the tutorial
+    tk_Interface_PhotoImage_canvas_pixel_object.pack()  # Larry's a smart guy.  I'm sure he has his reasons.
+```
+Repeated lines will be deleted.
+### 7
+From mbrot_fractal.py lines 157-172 (removing comment lines to show example).
+The if statements keep going and moving the code farther and farther to the right.
+```commandline
+    if palette is not None:
+        import builtins
+        len = builtins.len
+        len = len(palette)
+        global TWO
+        for iter in range(len):
+            z = z * z + c  # Get z1, z2, ...
+            if abs(z) > TWO:
+                z = float(TWO)
+                import builtins
+                len = builtins.len
+                if iter >= len(palette)
+```
+I'll see if I can simplify the tree, I'll definitely be renaming some variables and getting rid of others in here though.
+
+### 8
+   
+Lines 79-85 of main.py
+
+This whole section of code is confusing with things getting reassigned every few lines and variables having bad names.
+
+This example specifically has some confusing booleans, with badly named variables that only further the confusion.
+```commandline
+if not arg_is_phoneix and sysargv1_not_mndlbrt_frctl == 0:
+    print("ERROR:", sys.argv[1], "is not a valid fractal")    #
+    print("Please choose one of the following:")             ###
+    quit = False                                           #######
+    next = ''                                              #######
+    iter = 0                                                #####
+while not quit:      
+```
+This one (lines 104-110) is really hard to read too.
+```commandline
+        if PHOENX[iter] =='shrimp-cocktail':    ######################### ####
+            if MBROTS[i]  == 'starfish':       ### #  ## ##############   #
+                                              #             #####
+                i = i + 1                                  #######
+                exit = PHOENX[iter] =='shrimp-cocktail'    #######
+                i -= 1 #need to back off, else index error   ###
+                exit = exit and MBROTS[i]  == 'starfish'      #
+```
+I'll probably be rewriting most if not all of main.py honestly. It would be easier to understand at least.
+"while not quit" could be "while True", the if statement could be written in a much less confusing way.
+ 
+### 9
+From phoenix_fractal lines 24-29.
+
+The only imports used from this list are sys and time. You only need to import things you're actually using, otherwise it's
+unnecessary clutter.
+```commandline
+# These are the imports that I usually import
+import turtle
+import os
+import os.path
+import sys
+import time
+```
+Unused import statements will be deleted.
