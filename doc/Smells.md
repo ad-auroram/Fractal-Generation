@@ -121,6 +121,23 @@ Extra parameters will be deleted, and ones that are used will be renamed (also a
         *   "Does one function really need to do all of this work?"
         *   "Could I split this into smaller, more focused pieces?"
 
+From phoenix_fractal.py, in the makePictureOfFractal method, there's too many things going on at once. I believe it's
+both making the window and looping through pixels to make the image. That with the long blocks of comments make this
+method go on forever (128-214, 86 lines for one method!).
+```commandline
+ # Display the image on the screen
+    tk_Interface_PhotoImage_canvas_pixel_object = Canvas(win, width=s, height=s, bg=W)
+    ...
+```
+```
+        while r in range(s, 0, -1):
+        # for c (c == column) in the range of pixels in a square of size s
+        cs = []
+        for c in range(s):
+```
+There's a lot of comments and dead code between these snippets. They'll be split into two methods (at least) and any 
+dead code or bad comments will be deleted.
+
 
 
 6.  **Redundant** code
@@ -147,6 +164,7 @@ Repeated lines will be deleted.
     *   Are all of the branches truly necessary?
     *   Can all branches even be reached?
     *   Has every branch been tested?
+
 8.  **Spaghetti** code
     *   Heaps of meandering code without a clear goal
     *   Functions/objects used in inconsistent ways
@@ -155,7 +173,8 @@ Repeated lines will be deleted.
     *   Boolean expressions expressing double negatives; ex. `if not undone: ...`
     *   Code that makes you say "It would be easier to rewrite this than to understand it"
     
-    Lines 79-85 of main.py
+Lines 79-85 of main.py
+
 This whole section of code is confusing with things getting reassigned every few lines and variables having bad names.
 
 This example specifically has some confusing booleans, with badly named variables that only further the confusion.
@@ -168,9 +187,19 @@ if not arg_is_phoneix and sysargv1_not_mndlbrt_frctl == 0:
     iter = 0                                                #####
 while not quit:      
 ```
+This one (lines 104-110) is really hard to read too.
+```commandline
+        if PHOENX[iter] =='shrimp-cocktail':    ######################### ####
+            if MBROTS[i]  == 'starfish':       ### #  ## ##############   #
+                                              #             #####
+                i = i + 1                                  #######
+                exit = PHOENX[iter] =='shrimp-cocktail'    #######
+                i -= 1 #need to back off, else index error   ###
+                exit = exit and MBROTS[i]  == 'starfish'      #
+```
 I'll probably be rewriting most if not all of main.py honestly. It would be easier to understand at least.
 "while not quit" could be "while True", the if statement could be written in a much less confusing way.
-
+ 
 9.  **Dead** code
     *   Modules that are imported but not used
     *   Variables that are declared but not used
@@ -199,6 +228,19 @@ I'll probably be rewriting most if not all of main.py honestly. It would be easi
             *   Some programmers may keep these functions "just in case" they are needed again
             *   We don't do this at DuckieCorp because we have Git; if we ever need to recover that function, we can find it in the repo's history
 
+From phoenix_fractal lines 24-29.
+
+The only imports used from this list are sys and time. You only need to import things you're actually using, otherwise it's
+unnecessary clutter.
+```commandline
+# These are the imports that I usually import
+import turtle
+import os
+import os.path
+import sys
+import time
+```
+Unused import statements will be deleted.
 
 ### Template
 
