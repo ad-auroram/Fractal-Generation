@@ -4,8 +4,8 @@
 |------------|------------|--------------------
 | November 9 | .25 hour   | Scanned over code and instructions.
 | November 10| 1 hour     | Read over requirements and code more closely. Worked on Phase 0. Took the starter code quiz.
-| November 11| 1.25 hour  | Finished Phase 0. Working on identifying code smells.
-| TOTAL      | 2.5 hours  | *Your TOTAL should agree with your daily entries*
+| November 11| 1.75 hour  | Finished Phase 0. Working on identifying code smells.
+| TOTAL      | 3 hours    | *Your TOTAL should agree with your daily entries*
 
 
 ## Sprint Signature 4.1

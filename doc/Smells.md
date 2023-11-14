@@ -138,8 +138,6 @@ method go on forever (128-214, 86 lines for one method!).
 There's a lot of comments and dead code between these snippets. They'll be split into two methods (at least) and any 
 dead code or bad comments will be deleted.
 
-
-
 6.  **Redundant** code
     *   A repeated statement which doesn't have an effect the second time
     *   Ask yourself whether it makes any difference to be run more than once
@@ -164,6 +162,24 @@ Repeated lines will be deleted.
     *   Are all of the branches truly necessary?
     *   Can all branches even be reached?
     *   Has every branch been tested?
+
+From mbrot_fractal.py lines 157-172 (removing comment lines to show example).
+The if statements keep going and moving the code farther and farther to the right.
+```commandline
+    if palette is not None:
+        import builtins
+        len = builtins.len
+        len = len(palette)
+        global TWO
+        for iter in range(len):
+            z = z * z + c  # Get z1, z2, ...
+            if abs(z) > TWO:
+                z = float(TWO)
+                import builtins
+                len = builtins.len
+                if iter >= len(palette)
+```
+I'll see if I can simplify the tree, I'll definitely be renaming some variables and getting rid of others in here though.
 
 8.  **Spaghetti** code
     *   Heaps of meandering code without a clear goal
