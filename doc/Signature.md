@@ -1,11 +1,12 @@
 ## Sprint Signature 4.0
 
-| Date       | Time Spent | Events
-|------------|------------|--------------------
-| November 9 | .25 hour   | Scanned over code and instructions.
-| November 10| 1 hour     | Read over requirements and code more closely. Worked on Phase 0. Took the starter code quiz.
-| November 11| 1.75 hour  | Finished Phase 0. Working on identifying code smells.
-| TOTAL      | 3 hours    | *Your TOTAL should agree with your daily entries*
+| Date        | Time Spent | Events
+|-------------|------------|--------------------
+| November 9  | .25 hour   | Scanned over code and instructions.
+| November 10 | 1 hour     | Read over requirements and code more closely. Worked on Phase 0. Took the starter code quiz.
+| November 13 | 1.75 hour  | Finished Phase 0. Working on identifying code smells.
+| November 14 | 1 hour     | Drafting pseudocode and trying to figure out how everything works together. 
+| TOTAL       | 4 hours    | *Your TOTAL should agree with your daily entries*
 
 
 ## Sprint Signature 4.1
