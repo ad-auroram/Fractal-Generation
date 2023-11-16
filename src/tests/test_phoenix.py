@@ -57,6 +57,9 @@ class TestPhoenix(unittest.TestCase):
         """Color palette contains the expected number of colors"""
         self.assertEqual(108, len(grad))
 
+    # def test_numberOfFractals(self):
+        #self.assertEqual(4, len(fractal dictionary))
+
 
 if __name__ == '__main__':
     unittest.main()

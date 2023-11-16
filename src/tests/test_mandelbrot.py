@@ -59,6 +59,13 @@ class TestMandelbrot(unittest.TestCase):
         """Palette contains the expected number of colors"""
         self.assertEqual(111, len(palette))
 
+    #def test_count(self):
+        #Ensure that your fractal's count() functions return int instead of other types
+
+    #def test_numberOfFractals(self):
+        #Ensure that the dictionary of fractal configuration information contains the expected number of fractals
+        #self.assertEqual(8, len(fractal dictionary))
+
 
 if __name__ == '__main__':
     unittest.main()
