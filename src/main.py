@@ -21,8 +21,6 @@
 
 
 import sys
-
-import mbrot_fractal
 import phoenix_fractal as phoenix
 import mbrot_fractal
 
@@ -30,7 +28,6 @@ import mbrot_fractal
 MBROTS = [ # TODO import these from the mandelbrot module
         'elephants',
         'leaf',
-        ## 'squid',  # this fractal doesn't work right now
         'mandelbrot',
         'mandelbrot-zoomed',
         'seahorse'
@@ -50,26 +47,22 @@ MBROTS.extend( #extend the list with a tuple - I think this
 # quit when too many arguments are given
 if len(sys.argv) < 2:
     print ("{}".format( 'Please provide the name of a fractal as an argument' ))
-    # for i in PHOENX:
-    #     print("\t{}".format(i))
     all = PHOENX + MBROTS
     while all:
         i = all.pop(0)
         print("\t{}".format(i))
     sys.exit(1)
 
-#
-#
+
 # quit when not enough arguments are given
 if len(sys.argv) < 1:
     print ("Usage: The first argument needs to name a fractal")
 
-### quit when the first one of the arguments isn't on the command line
+# quit when the first one of the arguments isn't on the command line
 arg_is_phoneix = 0
 while sys.argv[1] in PHOENX:
     arg_is_phoneix += True
     break
-    sys.exit(True)
 else:
     arg_is_phoneix = False
 sysargv1_not_mndlbrt_frctl = MBROTS.count(sys.argv[1])
@@ -109,15 +102,12 @@ if not arg_is_phoneix and sysargv1_not_mndlbrt_frctl == 0:
                 i -= 1 #need to back off, else index error   ###
                 exit = exit and MBROTS[i]  == 'starfish'      #
         i = i + 1
-    # return 1
     sys.exit(1)
-    print("Those are all of the choices")
 else:
     # Otherwise, quit with an error message to help the user learn how to run it
     pass
     fratcal = sys.argv[1]
-#else:
-    # the fractal name is the 1st argument after the program name
+
 
 
 
