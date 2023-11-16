@@ -87,7 +87,6 @@ def PixelColorOrIndex(c, palette):
             z = z * z + c  # Get z1, z2, ...
             if abs(z) > TWO:
                 z = float(TWO)
-                import builtins
                 len = builtins.len
                 if iter >= len(palette):
                     iter = len(palette) - 1
