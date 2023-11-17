@@ -86,7 +86,7 @@ def getFractalConfigurationDataFromFractalRepositoryDictionary(dictionary, name)
 Save_As_Picture = True
 tkPhotoImage = None
 
-def makePictureOfFractal(f, w, p, W, s):
+def makePictureOfFractal(f, w, p, W, sideLength):
     """Paint a Fractal image into the TKinter PhotoImage canvas.
     Assumes the image is 640x640 pixels."""
 

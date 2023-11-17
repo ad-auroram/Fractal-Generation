@@ -26,11 +26,7 @@ from tkinter import Tk, Canvas, PhotoImage, mainloop
 import sys
 import time
 from Palette import palette
-from FractalInformation import images
-
-class MAX_ITERATIONS: c = -1
-
-
+from FractalInformation import f
 
 
 MAX_ITERATIONS = 115
@@ -175,7 +171,7 @@ def mbrot_main(image):
     global window
     window = Tk()
     img = PhotoImage(width=512, height=512)
-    paint(images, image, window)
+    paint(f, image, window)
 
     # Save the image as a PNG
     after = time.time()
