@@ -21,8 +21,8 @@
 
 
 import unittest
-from phoenix_fractal import getColorFromPalette, grad, WHITE, f
-from phoenix_fractal import getFractalConfigurationDataFromFractalRepositoryDictionary
+from Phoenix import getColorFromPalette, grad, f
+from Phoenix import getFractalConfigurationDataFromFractalRepositoryDictionary
 
 
 # autocmd BufWritePost <buffer> !python3 runTests.py

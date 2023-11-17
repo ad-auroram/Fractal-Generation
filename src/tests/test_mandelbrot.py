@@ -21,7 +21,7 @@
 
 
 import unittest
-from mbrot_fractal import PixelColorOrIndex, palette, MAX_ITERATIONS, pixelsWrittenSoFar
+from Mandelbrot import PixelColorOrIndex, palette, MAX_ITERATIONS, pixelsWrittenSoFar
 
 
 # autocmd BufWritePost <buffer> !python3 runTests.py

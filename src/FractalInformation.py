@@ -1,6 +1,4 @@
 
-#phoenix fractals:
-
 f = {
         'phoenix': {
             'type': 'phoenix',
