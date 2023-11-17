@@ -7,6 +7,7 @@
 | November 13 | 1.75 hour  | Finished Phase 0. Working on identifying code smells.
 | November 14 | 1 hour     | Drafting pseudocode and trying to figure out how everything works together. 
 | November 15 | 1 hour     | Drafted user's manual and unit tests. Finished up Phase 1. Started cleaning up the started code (deleted a lot of dead code/bad comments)
+| November 16 |
 | TOTAL       | 5 hours    | *Your TOTAL should agree with your daily entries*
 
 

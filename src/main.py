@@ -21,8 +21,8 @@
 
 
 import sys
-import phoenix_fractal as phoenix
-import mbrot_fractal
+import Phoenix as phoenix
+import Mandelbrot
 
 
 MBROTS = [ # TODO import these from the mandelbrot module
@@ -33,7 +33,7 @@ MBROTS = [ # TODO import these from the mandelbrot module
         'seahorse'
         ]
 
-from phoenix_fractal import f as phoenix_fractals
+from Phoenix import f as phoenix_fractals
 PHOENX =[]
 for p in  phoenix_fractals . keys():
     PHOENX=PHOENX+[p]
