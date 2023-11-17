@@ -65,16 +65,19 @@ while sys.argv[1] in PHOENX:
     break
 else:
     arg_is_phoenix = False
+sysargv1_not_mndlbrt_frctl = MBROTS.count(sys.argv[1])
 
 #
 # figure out if the comand line argument is one of the known fractals
-if not arg_is_phoenix and MBROTS.count(sys.argv[1]) == 0:
+if not arg_is_phoenix and sysargv1_not_mndlbrt_frctl == 0:
     print("ERROR:", sys.argv[1], "is not a valid fractal")
     print("Please choose one of the following:")
+    quit = False
+    next = ''
     count = 0
     while True:
         next = PHOENX[count]
-        print("\t")
+        print("\t%s" % next)
 
         if PHOENX[count] == 'shrimp-cocktail':
             break
