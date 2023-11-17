@@ -26,7 +26,7 @@ import sys
 import time
 from tkinter import Tk, Canvas, PhotoImage, mainloop
 from time import time
-from FractalInformation import f
+from FractalInformation import fractalList
 from Palette import grad
 
 SPC = chr(32)
@@ -86,7 +86,7 @@ def getFractalConfigurationDataFromFractalRepositoryDictionary(dictionary, name)
 Save_As_Picture = True
 tkPhotoImage = None
 
-def makePictureOfFractal(f, w, p, W, sideLength):
+def makePictureOfFractal(fractalList, w, p, W, sideLength):
     """Paint a Fractal image into the TKinter PhotoImage canvas.
     Assumes the image is 640x640 pixels."""
 
@@ -94,14 +94,14 @@ def makePictureOfFractal(f, w, p, W, sideLength):
     # coordinates of the imaginary plane
 
     # Compute the minimum coordinate of the picture
-    min = ((f['centerX'] - (f['axisLength'] / 2.0)),
-           (f['centerY'] - (f['axisLength'] / 2.0)))
+    min = ((fractalList['centerX'] - (fractalList['axisLength'] / 2.0)),
+           (fractalList['centerY'] - (fractalList['axisLength'] / 2.0)))
 
 
     # Compute the maximum coordinate of the picture
     # The program has only one axisLength because the images are square
-    max = ((f['centerX'] + (f['axisLength'] / 2.0)),
-           (f['centerY'] + (f['axisLength'] / 2.0)))
+    max = ((fractalList['centerX'] + (fractalList['axisLength'] / 2.0)),
+           (fractalList['centerY'] + (fractalList['axisLength'] / 2.0)))
 
 
     tk_Interface_PhotoImage_canvas_pixel_object = Canvas(win, width=sideLength, height=sideLength, bg=W)
@@ -162,9 +162,6 @@ class Black:
 grad += [Black.BLACK] * 6  # six pixels should be enough
 
 
-
-
-
 def phoenix_main(i):
     """The main entry-point for the Phoenix fractal generator"""
 
@@ -186,7 +183,7 @@ def phoenix_main(i):
     tkPhotoImage = PhotoImage(width=sideLength, height=sideLength)
     # ... and use it to make a picture of a fractal
     # TODO - should I have named this function "makeFractal()" or maybe just "makePicture"?
-    makePictureOfFractal(f[i], win, tkPhotoImage, '#000000', sideLength)
+    makePictureOfFractal(fractalList[i], win, tkPhotoImage, '#000000', sideLength)
 
     if Save_As_Picture:
         # Write out the Fractal into a .gif image file

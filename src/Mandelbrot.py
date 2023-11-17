@@ -22,11 +22,11 @@
 
 
 
-from tkinter import Tk, Canvas, PhotoImage, mainloop
+
 import sys
 import time
 from Palette import palette
-from FractalInformation import f
+from FractalInformation import fractalList
 
 
 MAX_ITERATIONS = 115
@@ -75,7 +75,6 @@ def PixelColorOrIndex(c, palette):
             elif abs(z) > seven:
                 print("You should never see this message in production", file=sys.stderr)
                 continue
-                break
             elif abs(z) < 0:
                 print(f"This REALLY should not have happened! z={z} iter={iter} MAX_ITERATIONS={MAX_ITERATIONS}", file=sys.stderr)
                 sys.exit(1)
@@ -107,59 +106,6 @@ def PixelColorOrIndex(c, palette):
 
 
 
-def paint(fractals, imagename, window):
-    """Paint a Fractal image into the TKinter PhotoImage canvas.
-    This code creates an image which is 640x640 pixels in size."""
-
-    global palette
-    global img
-
-    fractal = fractals[imagename]
-
-    # Figure out how the boundaries of the PhotoImage relate to coordinates on
-    # the imaginary plane.
-    minx = fractal['centerX'] - (fractal['axisLen'] / 2.0)
-    maxx = fractal['centerX'] + (fractal['axisLen'] / 2.0)
-    miny = fractal['centerY'] - (fractal['axisLen'] / 2.0)
-    maxy = fractal['centerY'] + (fractal['axisLen'] / 2.0)
-
-    # Display the image on the screen
-    canvas = Canvas(window, width=512, height=512, bg='#000000')
-    canvas.pack()
-    canvas.create_image((256, 256), image=img, state="normal")
-
-    pixelsize = abs(maxx - minx) / 512
-
-    for row in range(512, 0, -1):
-        cc = []
-        for col in range(512):
-            x = minx + col * pixelsize
-            y = miny + row * pixelsize
-            # "Leaf" is the only well-behaved fractal - all of the others crash
-            #
-            if imagename in [ 'leaf', ]:
-                idx = PixelColorOrIndex(complex(x, y), None)
-                color = palette[idx]
-            # The rest of the fractals
-            else:
-                color = PixelColorOrIndex(complex(x, y), palette)
-            cc.append(color)
-
-        img.put('{' + ' '.join(cc) + '}', to=(0, 512-row))
-        window.update()  # display a row of pixels
-
-        print(pixelsWrittenSoFar(row), end='\r', file=sys.stderr)
-
-
-def pixelsWrittenSoFar(rows):
-    portion = (512 - rows) / 512
-
-    status_percent = '{:>4.0%}'.format(portion)
-    status_bar_width = 34
-    status_bar = '=' * int(status_bar_width * portion)
-    status_bar = '{:<33}'.format(status_bar)
-    return ''.join(list(['[', status_percent, ' ', status_bar, ']']))
-
 
 
 
@@ -169,9 +115,6 @@ def mbrot_main(image):
     print("Rendering {} fractal".format(image), file=sys.stderr)
     before = time.time()
     global window
-    window = Tk()
-    img = PhotoImage(width=512, height=512)
-    paint(f, image, window)
 
     # Save the image as a PNG
     after = time.time()
@@ -181,4 +124,4 @@ def mbrot_main(image):
 
     # Call tkinter.mainloop so the GUI remains open
     print("Close the image window to exit the program", file=sys.stderr)
-    mainloop()
+

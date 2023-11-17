@@ -1,5 +1,5 @@
 
-f = {
+fractalList = {
         'phoenix': {
             'type': 'phoenix',
             'centerX':     0.0,
