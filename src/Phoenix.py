@@ -26,7 +26,7 @@ import sys
 import time
 from tkinter import Tk, Canvas, PhotoImage, mainloop
 from time import time
-
+from Palette import grad
 
 SPC = chr(0o40)  # Why doesn't anybody write octal numbers anymore...
 s = 0o1000
@@ -152,28 +152,7 @@ def makePictureOfFractal(f, i, e, w, g, p, W, a, b, s):
         r -= 1
 
 
-# This is the color palette, which defines the palette that images are drawn
-# in as well as limiting the number of iterations the escape-time algorithm uses
-#
-# TODO: It would be nice to add more or different colors to this list, but it's
-# just so much work to calculate all of the in-between shades!
-grad = ['#ffe4b5', '#ffe5b2', '#ffe7af', '#ffe8ac', '#ffeaa8', '#ffeca5',
-        '#ffeea2', '#fff09f', '#fff39c', '#fff699', '#fff996', '#fffc92',
-        '#ffff8f', '#fbff8c', '#f8ff89', '#f4ff86', '#f0ff83', '#ebff80',
-        '#e7ff7d', '#e2ff79', '#deff76', '#d8ff73', '#d3ff70', '#ceff6d',
-        '#c8ff6a', '#c2ff67', '#bcff63', '#b6ff60', '#b0ff5d', '#a9ff5a',
-        '#a3ff57', '#9cff54', '#94ff51', '#8dff4d', '#86ff4a', '#7eff47',
-        '#76ff44', '#6eff41', '#66ff3e', '#5dff3b', '#54ff37', '#4cff34',
-        '#43ff31', '#39ff2e', '#30ff2b', '#28ff29', '#25ff2d', '#21ff31',
-        '#1eff34', '#1bff39', '#18ff3d', '#15ff41', '#12ff46', '#0fff4b',
-        '#0cff50', '#08ff55', '#05ff5b', '#02ff60', '#00fe66', '#00fb6d',
-        '#00f873', '#00f579', '#00f17f', '#00ee84', '#00eb8a', '#00e88f',
-        '#00e594', '#00e299', '#00df9e', '#00dba2', '#00d8a6', '#00d5aa',
-        '#00d2ae', '#00cfb2', '#00ccb6', '#00c9b9', '#00c5bc', '#00c2bf',
-        '#00bdbf', '#00b4bc', '#00abb9', '#00a3b6', '#009bb3', '#0092af',
-        '#008bac', '#0083a9', '#007ba6', '#0074a3', '#006da0', '#00669d',
-        '#005f9a', '#005996', '#005293', '#004c90', '#00468d', '#00418a',
-        '#003b87', '#003684', '#003080', '#002b7d', '#00277a', '#002277']
+
 
 # Patrick T. 11/22/2022
 # The program was crashing from IndexError because the color palette had too
