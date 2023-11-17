@@ -33,7 +33,7 @@ MBROTS = [ # TODO import these from the mandelbrot module
         'seahorse'
         ]
 
-from Phoenix import f as phoenix_fractals
+from FractalInformation import f as phoenix_fractals
 PHOENX =[]
 for p in  phoenix_fractals . keys():
     PHOENX=PHOENX+[p]

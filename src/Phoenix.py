@@ -26,6 +26,7 @@ import sys
 import time
 from tkinter import Tk, Canvas, PhotoImage, mainloop
 from time import time
+from FractalInformation import f
 from Palette import grad
 
 SPC = chr(32)
@@ -161,42 +162,7 @@ class Black:
 grad += [Black.BLACK] * 6  # six pixels should be enough
 
 
-# This dictionary contains the different views of the Phoenix set you can make
-# with this program.
-#
-# For convenience I have placed these into a dictionary so you may easily
-# switch between them by entering the name of the image you want to generate
-# into the variable 'i'.
-#
-# TODO: Maybe it would be a good idea to incorporate the complex value `c` into
-# this configuration dictionary instead of hardcoding it into this program.
-# But I don't have time for this right now, too busy.  I'll just keep doing it
-# the way I know how.
-f = {
-        'phoenix': {
-            'centerX':     0.0,
-            'centerY':     0.0,
-            'axisLength':  3.25,
-            },
 
-        'peacock': {
-            'centerX':     -0.363287878200906,
-            'centerY':     0.381197981824009,
-            'axisLength':  0.0840187115019564,
-        },
-
-        'monkey-knife-fight': {
-            'centerX':    -0.945542168674699,
-            'centerY':    0.232234726688103,
-            'axisLength': 0.136626506024096,
-            },
-
-        'shrimp-cocktail': {
-            'centerX': 0.529156626506024,
-            'centerY': -0.3516077170418,
-            'axisLength': 0.221204819277108,
-            },
-        }
 
 
 def phoenix_main(i):
