@@ -25,8 +25,7 @@
 
 import sys
 import time
-from Palette import palette
-from FractalInformation import fractalList
+
 
 
 MAX_ITERATIONS = 115
@@ -114,8 +113,6 @@ def mbrot_main(image):
     # Set up the GUI so that we can paint the fractal image on the screen
     print("Rendering {} fractal".format(image), file=sys.stderr)
     before = time.time()
-    global window
-
     # Save the image as a PNG
     after = time.time()
     print(f"\nDone in {after - before:.3f} seconds!", file=sys.stderr)

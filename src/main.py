@@ -39,6 +39,8 @@ for p in  phoenix_fractals . keys():
     PHOENX=PHOENX+[p]
 
 
+
+
 MBROTS.extend( #extend the list with a tuple - I think this
                # casts the last half of this list as read-only
         ('spiral0','spiral1','starfish')  # its a good thing
@@ -108,7 +110,8 @@ else:
 
 
 
-if PHOENX.count(sys.argv[1])>0: phoenix.phoenix_main(sys.argv[1])
+if PHOENX.count(sys.argv[1])>0:
+    phoenix.phoenix_main(sys.argv[1])
 elif sys.argv[1] in MBROTS and len(sys.argv) > 1 and 2 <= len(sys.argv[0]):
     fractal = sys.argv[1]
     Mandelbrot.mbrot_main(fratcal)

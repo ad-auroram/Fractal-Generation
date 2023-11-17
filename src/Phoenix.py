@@ -27,7 +27,7 @@ import time
 from tkinter import Tk, Canvas, PhotoImage, mainloop
 from time import time
 from FractalInformation import fractalList
-from Palette import grad
+
 
 SPC = chr(32)
 sideLength = 512
@@ -94,14 +94,7 @@ def makePictureOfFractal(fractalList, w, p, W, sideLength):
     # coordinates of the imaginary plane
 
     # Compute the minimum coordinate of the picture
-    min = ((fractalList['centerX'] - (fractalList['axisLength'] / 2.0)),
-           (fractalList['centerY'] - (fractalList['axisLength'] / 2.0)))
 
-
-    # Compute the maximum coordinate of the picture
-    # The program has only one axisLength because the images are square
-    max = ((fractalList['centerX'] + (fractalList['axisLength'] / 2.0)),
-           (fractalList['centerY'] + (fractalList['axisLength'] / 2.0)))
 
 
     tk_Interface_PhotoImage_canvas_pixel_object = Canvas(win, width=sideLength, height=sideLength, bg=W)
@@ -114,7 +107,7 @@ def makePictureOfFractal(fractalList, w, p, W, sideLength):
     # Create the TK PhotoImage object that backs the Canvas Object
     tk_Interface_PhotoImage_canvas_pixel_object.create_image((sideLength/2, sideLength/2), image=p, state="normal")
 
-    size = abs(max[0] - min[0]) / sideLength
+
 
 
     # count backwards (that's what the -1 as the 3rd parameter to the range() function means - it's the "step"

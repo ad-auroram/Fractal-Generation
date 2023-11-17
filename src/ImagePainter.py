@@ -1,4 +1,8 @@
 from tkinter import Tk, Canvas, PhotoImage, mainloop
+from FractalInformation import fractalList
+from Palette import palette
+from Mandelbrot import PixelColorOrIndex
+import sys
 
 def paint(fractals, imagename, window):
     """Paint a Fractal image into the TKinter PhotoImage canvas.
@@ -13,7 +17,6 @@ def paint(fractals, imagename, window):
 
     window = Tk()
     img = PhotoImage(width=side, height=side)
-    paint(fractalList, image, window)
 
     # Figure out how the boundaries of the PhotoImage relate to coordinates on
     # the imaginary plane.
@@ -27,13 +30,13 @@ def paint(fractals, imagename, window):
     canvas.pack()
     canvas.create_image((side/2, side/2), image=img, state="normal")
 
-    pixelsize = abs(maxx - minx) / side
+    size = abs(maxx - minx) / side
 
     for row in range(side, 0, -1):
         cc = []
         for col in range(side):
-            x = minx + col * pixelsize
-            y = miny + row * pixelsize
+            x = min + col * size
+            y = min + row * size
             # "Leaf" is the only well-behaved fractal - all of the others crash
             #
             if imagename in [ 'leaf', ]:
