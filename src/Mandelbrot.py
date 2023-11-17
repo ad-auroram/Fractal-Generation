@@ -151,7 +151,6 @@ def paint(fractals, imagename, window):
         img.put('{' + ' '.join(cc) + '}', to=(0, 512-row))
         window.update()  # display a row of pixels
 
-        portion = 512 - row / 512 # prepare for next loop
         print(pixelsWrittenSoFar(row), end='\r', file=sys.stderr)
 
 

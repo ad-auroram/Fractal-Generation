@@ -28,8 +28,8 @@ from tkinter import Tk, Canvas, PhotoImage, mainloop
 from time import time
 from Palette import grad
 
-SPC = chr(0o40)  # Why doesn't anybody write octal numbers anymore...
-s = 0o1000
+SPC = chr(32)
+sideLength = 512
 
 def getColorFromPalette(z):
     """
@@ -40,10 +40,8 @@ def getColorFromPalette(z):
     global grad
     global win
 
-    # JuliaCon is the Julia Constant; varying this value gives rise to a variety of variated images
     JuliaCon = complex(0.5667, 0.0)
 
-    # phoenix is the Phonix Constant; same deal as above - adjust this to get different results
     phoenixCon = complex(-0.5, 0.0)
 
     # reflect its components, so the imaginary part becomes the real part, and vice versa
@@ -65,8 +63,7 @@ def getColorFromPalette(z):
 
         if abs(z) > 2:
             return grad[i]  # The sequence is unbounded
-            z = z * z + JuliaCon  # + zPrev * phoenixCon
-    # TODO: One of these returns occasionally makes the program crash sometimes
+
     return grad[101]         # Else this is a bounded sequence
 
 
@@ -88,7 +85,7 @@ def getFractalConfigurationDataFromFractalRepositoryDictionary(dictionary, name)
 Save_As_Picture = True
 tkPhotoImage = None
 
-def makePictureOfFractal(f, i, e, w, g, p, W, a, b, s):
+def makePictureOfFractal(f, w, p, W, s):
     """Paint a Fractal image into the TKinter PhotoImage canvas.
     Assumes the image is 640x640 pixels."""
 
@@ -106,7 +103,7 @@ def makePictureOfFractal(f, i, e, w, g, p, W, a, b, s):
            (f['centerY'] + (f['axisLength'] / 2.0)))
 
 
-    tk_Interface_PhotoImage_canvas_pixel_object = Canvas(win, width=s, height=s, bg=W)
+    tk_Interface_PhotoImage_canvas_pixel_object = Canvas(win, width=sideLength, height=sideLength, bg=W)
 
     tk_Interface_PhotoImage_canvas_pixel_object.pack()
     # TODO: Sometimes I wonder whether some of my functions are trying to do
@@ -114,42 +111,41 @@ def makePictureOfFractal(f, i, e, w, g, p, W, a, b, s):
     #       program to create a GUI window, right?
 
     # Create the TK PhotoImage object that backs the Canvas Object
-    tk_Interface_PhotoImage_canvas_pixel_object.create_image((s/2, s/2), image=p, state="normal")
+    tk_Interface_PhotoImage_canvas_pixel_object.create_image((sideLength/2, sideLength/2), image=p, state="normal")
 
-    size = abs(max[0] - min[0]) / s
+    size = abs(max[0] - min[0]) / sideLength
 
-    # for r (where r means "row") in the range of the size of the square image,
-    # but count backwards (that's what the -1 as the 3rd parameter to the range() function means - it's the "step"
+
+    # count backwards (that's what the -1 as the 3rd parameter to the range() function means - it's the "step"
     # You can actually put any number there that you want, because it defaults to "1" you usually don't have to
     # but I have to here because we're actually going BACKWARDS, which took me
     # a long time to figure out, so don't change it, or else the picture won't
     # come out right
-    r = s
-    while r in range(s, 0, -1):
+    row = sideLength
+    while row in range(sideLength, 0, -1):
         # for c (c == column) in the range of pixels in a square of size s
         cs = []
-        for c in range(s):
+        for c in range(sideLength):
             # calculate the X value in the complex plane
             X = min[0] + c * size
-            Y = 0
             # calculate the X value in the complex plane
-            Y = min[1] + r * size
+            Y = min[1] + row * size
             # TODO: do I really need to call getColorFromPalette() twice?
             #       It seems like this should be slow...
             #       But, if it aint broken, don't repair it, right?
             cp = getColorFromPalette(complex(X, Y))
             cs.append(cp)
         pixls = '{' + ' '.join(cs) + '}'
-        p.put(pixls, (0, s - r))
+        p.put(pixls, (0, sideLength - row))
         w.update()  # display a row of pixels
-        fraction_of_pixels_writtenSoFar = (s - r) / s   # update the number of pixels output so far
+        fraction_of_pixels_writtenSoFar = (sideLength - row) / sideLength   # update the number of pixels output so far
         # print a statusbar on the console
         print(f"[{fraction_of_pixels_writtenSoFar:>4.0%}"
                 + f'{SPC}'
                 + f"{'=' * int(34 * fraction_of_pixels_writtenSoFar):<33}]",
                 end="\r"
                 , file=sys.stderr)
-        r -= 1
+        row -= 1
 
 
 
@@ -203,23 +199,6 @@ f = {
         }
 
 
-
-WHITE = '#ffffff'
-RED = '#ff0000'
-BLUE = '#00ff00'
-GREEN = '#0000ff'
-BLACK = '#000000'
-ORANGE = '#ffa50'
-TOMATO = '#ff6347'
-HOT_PINK = '#ff69b4'
-REBECCA_PURPLE = '#663399'
-LIME_GREEN = '#89ff00'
-GREY0 = '#000000'
-GRAY37 = '#5e5e5e'
-GREY74 = '#bdbdbd'
-GRAY99 = '#fcfcfc'
-
-
 def phoenix_main(i):
     """The main entry-point for the Phoenix fractal generator"""
 
@@ -229,7 +208,7 @@ def phoenix_main(i):
     # classes, sue me
     global tkPhotoImage
     global win
-    global s
+    global sideLength
 
     # Note the time of when we started so we can measure performance improvements
     b4 = time()
@@ -238,10 +217,10 @@ def phoenix_main(i):
 
     print("Rendering %s fractal" % i, file=sys.stderr)
     # construct a new TK PhotoImage object that is 512 pixels square...
-    tkPhotoImage = PhotoImage(width=s, height=s)
+    tkPhotoImage = PhotoImage(width=sideLength, height=sideLength)
     # ... and use it to make a picture of a fractal
     # TODO - should I have named this function "makeFractal()" or maybe just "makePicture"?
-    makePictureOfFractal(f[i], i, ".png", win, grad, tkPhotoImage, GREY0, None, None, s)
+    makePictureOfFractal(f[i], win, tkPhotoImage, '#000000', sideLength)
 
     if Save_As_Picture:
         # Write out the Fractal into a .gif image file
