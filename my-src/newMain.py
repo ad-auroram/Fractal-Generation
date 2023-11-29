@@ -1,6 +1,5 @@
 import sys
-import FractalInformation
-import ImagePainter
+from ImagePainter import paint
 
 from FractalInformation import fractalList as fractals
 
@@ -27,7 +26,7 @@ def main():
         sys.exit(1)
 
     if fractal in fractals:
-        
+        paint(fractals, fractal)
 
 
 

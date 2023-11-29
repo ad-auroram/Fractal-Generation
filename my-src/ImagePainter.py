@@ -4,7 +4,7 @@ from Palette import palette
 from Mandelbrot import PixelColorOrIndex
 import sys
 
-def paint(fractals, imagename, window):
+def paint(fractals, imagename):
     """Paint a Fractal image into the TKinter PhotoImage canvas.
     This code creates an image which is 640x640 pixels in size."""
 
@@ -35,8 +35,8 @@ def paint(fractals, imagename, window):
     for row in range(side, 0, -1):
         cc = []
         for col in range(side):
-            x = min + col * size
-            y = min + row * size
+            x = minx + col * size
+            y = miny + row * size
             # "Leaf" is the only well-behaved fractal - all of the others crash
             #
             if imagename in [ 'leaf', ]:
