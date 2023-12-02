@@ -14,7 +14,7 @@
 ## Sprint Signature 4.1
 
 | Date        | Time Spent | Events
-|-------------|----------|--------------------
-| November 29 | .5 hour  | Updated things with Erik's source code. Read over the requirements and took the starter code quiz.
-| December 2  | .5 hour  | Filled out Phase 0 of the plan.
-| TOTAL       | .5 hours | *Your TOTAL should agree with your daily entries*
+|-------------|------------|--------------------
+| November 29 | .5 hour    | Updated things with Erik's source code. Read over the requirements and took the starter code quiz.
+| December 2  | 1.5 hour   | Filled out Phase 0 of the plan. Started drafting plans for classes and modules.
+| TOTAL       | .5 hours   | *Your TOTAL should agree with your daily entries*
