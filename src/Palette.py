@@ -17,6 +17,8 @@
 #                                  this software without specific prior written
 #                                  permission.
 
+import colour
+
 CUSTARD = '#E1D89F'
 PISTACHIO = '#A8D786'
 MINT = '#6ECB8A'
@@ -61,3 +63,62 @@ PHOENIX = ['#ffe4b5', '#ffe5b2', '#ffe7af', '#ffe8ac', '#ffeaa8', '#ffeca5',
            '#008bac', '#0083a9', '#007ba6', '#0074a3', '#006da0', '#00669d',
            '#005f9a', '#005996', '#005293', '#004c90', '#00468d', '#00418a',
            '#003b87', '#003684', '#003080', '#002b7d', '#00277a', '#002277']
+
+
+class Palette:
+    def getcolor(self, n):
+        raise NotImplementedError("Concrete subclass of Palette must implement getColor() method")
+
+class Sunset(Palette):
+    purple = colour.Color("#1F214D")
+    white = colour.Color("#FFFFFF")
+    pink = colour.Color("#BF3475")
+    orange = colour.Color("#EE6C45")
+    yellow = colour.Color("#FFCE61")
+
+    sunset = []
+    for color in purple.range_to(white, 32):
+        sunset.append(color.hex_l)
+    for color in list(white.range_to(pink, 32))[1:]:
+        sunset.append(color.hex_l)
+    for color in list(pink.range_to(white, 32))[1:]:
+        sunset.append(color.hex_l)
+    for color in list(white.range_to(orange, 32))[1:]:
+        sunset.append(color.hex_l)
+    for color in list(orange.range_to(white, 32))[1:]:
+        sunset.append(color.hex_l)
+    for color in list(white.range_to(yellow, 32))[1:]:
+        sunset.append(color.hex_l)
+    for color in list(yellow.range_to(white, 32))[1:]:
+        sunset.append(color.hex_l)
+    for color in list(white.range_to(orange, 32))[1:]:
+        sunset.append(color.hex_l)
+    for color in list(orange.range_to(white, 32))[1:]:
+        sunset.append(color.hex_l)
+    for color in list(white.range_to(pink, 32))[1:]:
+        sunset.append(color.hex_l)
+    for color in list(pink.range_to(white, 32))[1:]:
+        sunset.append(color.hex_l)
+    for color in list(white.range_to(purple, 32))[1:]:
+        sunset.append(color.hex_l)
+
+    for color in list(purple.range_to(white, 32))[1:]:
+        sunset.append(color.hex_l)
+    for color in list(white.range_to(pink, 32))[1:]:
+        sunset.append(color.hex_l)
+    for color in list(pink.range_to(white, 32))[1:]:
+        sunset.append(color.hex_l)
+    for color in list(white.range_to(orange, 32))[1:]:
+        sunset.append(color.hex_l)
+    for color in list(orange.range_to(white, 32))[1:]:
+        sunset.append(color.hex_l)
+    for color in list(white.range_to(yellow, 32))[1:]:
+        sunset.append(color.hex_l)
+
+    def __init__(self):
+        super().__init__()
+
+    def getcolor(self, n):
+        return Sunset[n]
+
+

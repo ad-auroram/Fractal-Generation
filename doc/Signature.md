@@ -18,4 +18,5 @@
 | November 29 | .5 hour    | Updated things with Erik's source code. Read over the requirements and took the starter code quiz.
 | December 2  | 1.5 hour   | Filled out Phase 0 of the plan. Started drafting plans for classes and modules.
 | December 3  | .5 hour    | More drafting plans/pseudocode. Drafted the user's manual. Finished filling out Phase 1.
+| December 4  | 2 hours    | Color palettes.
 | TOTAL       | 2.5 hours  | *Your TOTAL should agree with your daily entries*
