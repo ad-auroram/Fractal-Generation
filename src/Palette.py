@@ -119,6 +119,62 @@ class Sunset(Palette):
         super().__init__()
 
     def getcolor(self, n):
-        return Sunset[n]
+        return sunset[n]
+
+class Thunderstorm(Palette):
+
+    darkBlue = colour.Color("#0D1B2A")
+    white = colour.Color("#FFFFFF")
+    aqua = colour.Color("#50D8D7")
+    black = colour.Color("#000000")
+    yellow = colour.Color("#EFA00B")
+    blueGray = colour.Color("#415A77")
+    
+    thunderstorm = []
+    for color in black.range_to(aqua, 32):
+        thunderstorm.append(color.hex_l)
+    for color in list(aqua.range_to(white, 32))[1:]:
+        thunderstorm.append(color.hex_l)
+    for color in list(white.range_to(blueGray, 32))[1:]:
+        thunderstorm.append(color.hex_l)
+    for color in list(blueGray.range_to(black, 32))[1:]:
+        thunderstorm.append(color.hex_l)
+    for color in list(black.range_to(yellow, 32))[1:]:
+        thunderstorm.append(color.hex_l)
+    for color in list(yellow.range_to(white, 32))[1:]:
+        thunderstorm.append(color.hex_l)
+    for color in list(white.range_to(darkBlue, 32))[1:]:
+        thunderstorm.append(color.hex_l)
+    for color in list(darkBlue.range_to(black, 32))[1:]:
+        thunderstorm.append(color.hex_l)
+    for color in list(black.range_to(white, 32))[1:][1:]:
+        thunderstorm.append(color.hex_l)
+    for color in list(white.range_to(black, 32))[1:][1:]:
+        thunderstorm.append(color.hex_l)
+    for color in black.range_to(aqua, 32):
+        thunderstorm.append(color.hex_l)
+    for color in list(aqua.range_to(white, 32))[1:]:
+        thunderstorm.append(color.hex_l)
+    for color in list(white.range_to(blueGray, 32))[1:]:
+        thunderstorm.append(color.hex_l)
+    for color in list(blueGray.range_to(black, 32))[1:]:
+        thunderstorm.append(color.hex_l)
+    for color in list(black.range_to(yellow, 32))[1:]:
+        thunderstorm.append(color.hex_l)
+    for color in list(yellow.range_to(white, 32))[1:]:
+        thunderstorm.append(color.hex_l)
+    for color in list(white.range_to(darkBlue, 32))[1:]:
+        thunderstorm.append(color.hex_l)
+    for color in list(darkBlue.range_to(black, 32))[1:]:
+        thunderstorm.append(color.hex_l)
+
+
+
+    def __init__(self):
+        super().__init__()
+
+    def getcolor(self, n):
+        return thunderstorm[n]
+
 
 
