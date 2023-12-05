@@ -74,8 +74,8 @@ class Palette:
 class Sunset(Palette):
 
 
-    def __init__(self):
-        super().__init__(self)
+    def __init__(self,palette):
+        Palette.__init__(self, palette)
 
         purple = colour.Color("#1F214D")
         white = colour.Color("#FFFFFF")
@@ -127,8 +127,8 @@ class Sunset(Palette):
         return self.palette[n]
 
 class Thunderstorm(Palette):
-    def __init__(self):
-        super().__init__(self)
+    def __init__(self, palette):
+        Palette.__init__(self, palette)
         darkBlue = colour.Color("#0D1B2A")
         white = colour.Color("#FFFFFF")
         aqua = colour.Color("#50D8D7")
