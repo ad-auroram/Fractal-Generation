@@ -14,9 +14,10 @@
 ## Sprint Signature 4.1
 
 | Date        | Time Spent | Events
-|-------------|----------|--------------------
-| November 29 | .5 hour  | Updated things with Erik's source code. Read over the requirements and took the starter code quiz.
-| December 2  | 1.5 hour | Filled out Phase 0 of the plan. Started drafting plans for classes and modules.
-| December 3  | .5 hour  | More drafting plans/pseudocode. Drafted the user's manual. Finished filling out Phase 1.
-| December 4  | 2.5 hours | Figuring out how to make color palettes and getting them to look nice.
-| TOTAL       | 5 hours  | *Your TOTAL should agree with your daily entries*
+|-------------|------------|--------------------
+| November 29 | .5 hour    | Updated things with Erik's source code. Read over the requirements and took the starter code quiz.
+| December 2  | 1.5 hours  | Filled out Phase 0 of the plan. Started drafting plans for classes and modules.
+| December 3  | .5 hour    | More drafting plans/pseudocode. Drafted the user's manual. Finished filling out Phase 1.
+| December 4  | 2.5 hours  | Figuring out how to make color palettes and getting them to look nice.
+| December 5  | 1 hour     | Created FractalParser and started making Fractal classes.
+| TOTAL       | 5 hours    | *Your TOTAL should agree with your daily entries*
