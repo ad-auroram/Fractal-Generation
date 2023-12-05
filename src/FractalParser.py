@@ -10,13 +10,14 @@ def parseFractal(filename):
             fractal[key[0]] = key[1]
     axislen = fractal["axislength"]/2
     fractal["min"] = {
-        "x" : 0 -axislen,
-        "y" : 0 - axislen
+        "x" : fractal["centerX"] - axislen,
+        "y" : fractal["centerY"] - axislen
         }
     fractal["max"] = {
-        "x" : 0 + axislen,
-        "y" : 0 + axislen
+        "x" : fractal["centerX"] + axislen,
+        "y" : fractal["centerY"] + axislen
     }
     fractal["pixelsize"] = fractal["axislength"]/fractal["pixels"]
     name = Path(filename)
     fractal["imagename"] = name.stem
+    
