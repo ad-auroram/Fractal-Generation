@@ -66,115 +66,116 @@ PHOENIX = ['#ffe4b5', '#ffe5b2', '#ffe7af', '#ffe8ac', '#ffeaa8', '#ffeca5',
 
 
 class Palette:
+    def __init__(self, palette):
+        self.palette = []
     def getcolor(self, n):
         raise NotImplementedError("Concrete subclass of Palette must implement getColor() method")
 
 class Sunset(Palette):
-    purple = colour.Color("#1F214D")
-    white = colour.Color("#FFFFFF")
-    pink = colour.Color("#BF3475")
-    orange = colour.Color("#EE6C45")
-    yellow = colour.Color("#FFCE61")
 
-    sunset = []
-    for color in purple.range_to(white, 32):
-        sunset.append(color.hex_l)
-    for color in list(white.range_to(pink, 32))[1:]:
-        sunset.append(color.hex_l)
-    for color in list(pink.range_to(white, 32))[1:]:
-        sunset.append(color.hex_l)
-    for color in list(white.range_to(orange, 32))[1:]:
-        sunset.append(color.hex_l)
-    for color in list(orange.range_to(white, 32))[1:]:
-        sunset.append(color.hex_l)
-    for color in list(white.range_to(yellow, 32))[1:]:
-        sunset.append(color.hex_l)
-    for color in list(yellow.range_to(white, 32))[1:]:
-        sunset.append(color.hex_l)
-    for color in list(white.range_to(orange, 32))[1:]:
-        sunset.append(color.hex_l)
-    for color in list(orange.range_to(white, 32))[1:]:
-        sunset.append(color.hex_l)
-    for color in list(white.range_to(pink, 32))[1:]:
-        sunset.append(color.hex_l)
-    for color in list(pink.range_to(white, 32))[1:]:
-        sunset.append(color.hex_l)
-    for color in list(white.range_to(purple, 32))[1:]:
-        sunset.append(color.hex_l)
-
-    for color in list(purple.range_to(white, 32))[1:]:
-        sunset.append(color.hex_l)
-    for color in list(white.range_to(pink, 32))[1:]:
-        sunset.append(color.hex_l)
-    for color in list(pink.range_to(white, 32))[1:]:
-        sunset.append(color.hex_l)
-    for color in list(white.range_to(orange, 32))[1:]:
-        sunset.append(color.hex_l)
-    for color in list(orange.range_to(white, 32))[1:]:
-        sunset.append(color.hex_l)
-    for color in list(white.range_to(yellow, 32))[1:]:
-        sunset.append(color.hex_l)
 
     def __init__(self):
-        super().__init__()
+        super().__init__(self)
+
+        purple = colour.Color("#1F214D")
+        white = colour.Color("#FFFFFF")
+        pink = colour.Color("#BF3475")
+        orange = colour.Color("#EE6C45")
+        yellow = colour.Color("#FFCE61")
+        sunset = []
+        for color in purple.range_to(white, 32):
+            sunset.append(color.hex_l)
+        for color in list(white.range_to(pink, 32))[1:]:
+            sunset.append(color.hex_l)
+        for color in list(pink.range_to(white, 32))[1:]:
+            sunset.append(color.hex_l)
+        for color in list(white.range_to(orange, 32))[1:]:
+            sunset.append(color.hex_l)
+        for color in list(orange.range_to(white, 32))[1:]:
+            sunset.append(color.hex_l)
+        for color in list(white.range_to(yellow, 32))[1:]:
+            sunset.append(color.hex_l)
+        for color in list(yellow.range_to(white, 32))[1:]:
+            sunset.append(color.hex_l)
+        for color in list(white.range_to(orange, 32))[1:]:
+            sunset.append(color.hex_l)
+        for color in list(orange.range_to(white, 32))[1:]:
+            sunset.append(color.hex_l)
+        for color in list(white.range_to(pink, 32))[1:]:
+            sunset.append(color.hex_l)
+        for color in list(pink.range_to(white, 32))[1:]:
+            sunset.append(color.hex_l)
+        for color in list(white.range_to(purple, 32))[1:]:
+            sunset.append(color.hex_l)
+        for color in list(purple.range_to(white, 32))[1:]:
+            sunset.append(color.hex_l)
+        for color in list(white.range_to(pink, 32))[1:]:
+            sunset.append(color.hex_l)
+        for color in list(pink.range_to(white, 32))[1:]:
+            sunset.append(color.hex_l)
+        for color in list(white.range_to(orange, 32))[1:]:
+            sunset.append(color.hex_l)
+        for color in list(orange.range_to(white, 32))[1:]:
+            sunset.append(color.hex_l)
+        for color in list(white.range_to(yellow, 32))[1:]:
+            sunset.append(color.hex_l)
+
+        self.palette = sunset
+
 
     def getcolor(self, n):
-        return sunset[n]
+        return self.palette[n]
 
 class Thunderstorm(Palette):
-
-    darkBlue = colour.Color("#0D1B2A")
-    white = colour.Color("#FFFFFF")
-    aqua = colour.Color("#50D8D7")
-    black = colour.Color("#000000")
-    yellow = colour.Color("#EFA00B")
-    blueGray = colour.Color("#415A77")
-    
-    thunderstorm = []
-    for color in black.range_to(aqua, 32):
-        thunderstorm.append(color.hex_l)
-    for color in list(aqua.range_to(white, 32))[1:]:
-        thunderstorm.append(color.hex_l)
-    for color in list(white.range_to(blueGray, 32))[1:]:
-        thunderstorm.append(color.hex_l)
-    for color in list(blueGray.range_to(black, 32))[1:]:
-        thunderstorm.append(color.hex_l)
-    for color in list(black.range_to(yellow, 32))[1:]:
-        thunderstorm.append(color.hex_l)
-    for color in list(yellow.range_to(white, 32))[1:]:
-        thunderstorm.append(color.hex_l)
-    for color in list(white.range_to(darkBlue, 32))[1:]:
-        thunderstorm.append(color.hex_l)
-    for color in list(darkBlue.range_to(black, 32))[1:]:
-        thunderstorm.append(color.hex_l)
-    for color in list(black.range_to(white, 32))[1:][1:]:
-        thunderstorm.append(color.hex_l)
-    for color in list(white.range_to(black, 32))[1:][1:]:
-        thunderstorm.append(color.hex_l)
-    for color in black.range_to(aqua, 32):
-        thunderstorm.append(color.hex_l)
-    for color in list(aqua.range_to(white, 32))[1:]:
-        thunderstorm.append(color.hex_l)
-    for color in list(white.range_to(blueGray, 32))[1:]:
-        thunderstorm.append(color.hex_l)
-    for color in list(blueGray.range_to(black, 32))[1:]:
-        thunderstorm.append(color.hex_l)
-    for color in list(black.range_to(yellow, 32))[1:]:
-        thunderstorm.append(color.hex_l)
-    for color in list(yellow.range_to(white, 32))[1:]:
-        thunderstorm.append(color.hex_l)
-    for color in list(white.range_to(darkBlue, 32))[1:]:
-        thunderstorm.append(color.hex_l)
-    for color in list(darkBlue.range_to(black, 32))[1:]:
-        thunderstorm.append(color.hex_l)
-
-
-
     def __init__(self):
-        super().__init__()
+        super().__init__(self)
+        darkBlue = colour.Color("#0D1B2A")
+        white = colour.Color("#FFFFFF")
+        aqua = colour.Color("#50D8D7")
+        black = colour.Color("#000000")
+        yellow = colour.Color("#EFA00B")
+        blueGray = colour.Color("#415A77")
+        thunderstorm = []
+        for color in black.range_to(aqua, 32):
+            thunderstorm.append(color.hex_l)
+        for color in list(aqua.range_to(white, 32))[1:]:
+            thunderstorm.append(color.hex_l)
+        for color in list(white.range_to(blueGray, 32))[1:]:
+            thunderstorm.append(color.hex_l)
+        for color in list(blueGray.range_to(black, 32))[1:]:
+            thunderstorm.append(color.hex_l)
+        for color in list(black.range_to(yellow, 32))[1:]:
+            thunderstorm.append(color.hex_l)
+        for color in list(yellow.range_to(white, 32))[1:]:
+            thunderstorm.append(color.hex_l)
+        for color in list(white.range_to(darkBlue, 32))[1:]:
+            thunderstorm.append(color.hex_l)
+        for color in list(darkBlue.range_to(black, 32))[1:]:
+            thunderstorm.append(color.hex_l)
+        for color in list(black.range_to(white, 32))[1:][1:]:
+            thunderstorm.append(color.hex_l)
+        for color in list(white.range_to(black, 32))[1:][1:]:
+            thunderstorm.append(color.hex_l)
+        for color in black.range_to(aqua, 32):
+            thunderstorm.append(color.hex_l)
+        for color in list(aqua.range_to(white, 32))[1:]:
+            thunderstorm.append(color.hex_l)
+        for color in list(white.range_to(blueGray, 32))[1:]:
+            thunderstorm.append(color.hex_l)
+        for color in list(blueGray.range_to(black, 32))[1:]:
+            thunderstorm.append(color.hex_l)
+        for color in list(black.range_to(yellow, 32))[1:]:
+            thunderstorm.append(color.hex_l)
+        for color in list(yellow.range_to(white, 32))[1:]:
+            thunderstorm.append(color.hex_l)
+        for color in list(white.range_to(darkBlue, 32))[1:]:
+            thunderstorm.append(color.hex_l)
+        for color in list(darkBlue.range_to(black, 32))[1:]:
+            thunderstorm.append(color.hex_l)
+        self.palette = thunderstorm
 
     def getcolor(self, n):
-        return thunderstorm[n]
+        return self.palette[n]
 
 
 
