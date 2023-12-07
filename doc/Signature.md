@@ -14,11 +14,11 @@
 ## Sprint Signature 4.1
 
 | Date        | Time Spent | Events
-|-------------|-----------|--------------------
-| November 29 | .5 hour   | Updated things with Erik's source code. Read over the requirements and took the starter code quiz.
-| December 2  | 1.5 hours | Filled out Phase 0 of the plan. Started drafting plans for classes and modules.
-| December 3  | .5 hour   | More drafting plans/pseudocode. Drafted the user's manual. Finished filling out Phase 1.
-| December 4  | 2.5 hours | Figuring out how to make color palettes and getting them to look nice.
-| December 5  | 1 hour    | Created FractalParser and started making Fractal classes.
-| December 6  | .5 hour   | Fixed palette to generate dynamically. Messed up ssh keys while trying to set up github. Now making commits from my sad little laptop.
-| TOTAL       | 5 hours   | *Your TOTAL should agree with your daily entries*
+|-------------|------------|--------------------
+| November 29 | .5 hour    | Updated things with Erik's source code. Read over the requirements and took the starter code quiz.
+| December 2  | 1.5 hours  | Filled out Phase 0 of the plan. Started drafting plans for classes and modules.
+| December 3  | .5 hour    | More drafting plans/pseudocode. Drafted the user's manual. Finished filling out Phase 1.
+| December 4  | 2.5 hours  | Figuring out how to make color palettes and getting them to look nice.
+| December 5  | 1 hour     | Created FractalParser and started making Fractal classes.
+| December 6  | 1 hour     | Fixed palette to generate dynamically. Messed up ssh keys while trying to set up github. Now making commits from my sad little laptop. Fixed ssh key things and added to fractalparser to it would check for numeric values or raise errors as needed.
+| TOTAL       | 5 hours    | *Your TOTAL should agree with your daily entries*
