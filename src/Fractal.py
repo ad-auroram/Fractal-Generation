@@ -4,7 +4,7 @@ class Fractal:
         raise NotImplementedError("Concrete subclass of Fractal must implement count() method")
 
 class Mandelbrot:
-    def __init__(self):
+    def __init__(self, centerX, centerY, iterations):
         Fractal.__init__(self)
 
     def count(self, c, end):
@@ -20,7 +20,7 @@ class Mandelbrot:
         return end
 
 class Phoenix:
-    def __init__(self):
+    def __init__(self, centerX, centerY, iterations):
         Fractal.__init__(self)
 
     def count(self, z, end):

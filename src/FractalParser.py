@@ -3,6 +3,8 @@ def parseFractal(filename):
     fractal = dict()
     file = open(filename)
     for line in file:
+        if line.startswith("#"):
+            continue
         line = line.lower()
         key = line.rstrip("\n").split(":")
         fractal[key[0]] = key[1]
