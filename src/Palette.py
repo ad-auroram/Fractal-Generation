@@ -67,8 +67,7 @@ PHOENIX = ['#ffe4b5', '#ffe5b2', '#ffe7af', '#ffe8ac', '#ffeaa8', '#ffeca5',
 
 
 class Palette:
-    def __init__(self, palette, iteration):
-        self.palette = []
+    def __init__(self, iteration):
         self.iteration = 0
     def getcolor(self, n):
         raise NotImplementedError("Concrete subclass of Palette must implement getColor() method")
@@ -76,8 +75,8 @@ class Palette:
 class Sunset(Palette):
 
 
-    def __init__(self, palette, iteration):
-        Palette.__init__(self, palette,iteration)
+    def __init__(self, iteration):
+        Palette.__init__(self, iteration)
         numColorSteps = 12
         i = math.ceil(self.iteration / numColorSteps)
 
@@ -120,8 +119,8 @@ class Sunset(Palette):
         return self.palette[n]
 
 class Thunderstorm(Palette):
-    def __init__(self, palette, iteration):
-        Palette.__init__(self, palette, iteration)
+    def __init__(self, iteration):
+        Palette.__init__(self, iteration)
         numColorSteps = 8
         i = math.ceil(self.iteration / numColorSteps)
 
@@ -150,6 +149,7 @@ class Thunderstorm(Palette):
         for color in list(darkBlue.range_to(black, i))[1:]:
             thunderstorm.append(color.hex_l)
 
+        self.palette = thunderstorm
 
     def getcolor(self, n):
         return self.palette[n]
