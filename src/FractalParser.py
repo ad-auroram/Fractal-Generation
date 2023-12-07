@@ -4,10 +4,8 @@ def parseFractal(filename):
     file = open(filename)
     for line in file:
         key = line.rstrip("\n").split(":")
-        if key[1].isnumeric:
-            fractal[key[0]] = int(key[1])
-        else:
-            fractal[key[0]] = key[1]
+        fractal[key[0]] = key[1]
+
     axislen = fractal["axislength"]/2
     fractal["min"] = {
         "x" : fractal["centerX"] - axislen,
