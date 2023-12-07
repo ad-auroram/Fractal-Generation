@@ -2,10 +2,10 @@
 
 from palette import Sunset, Thunderstorm
 
-def makePalette(fractal, steps):
-    if fractal == '' or fractal.lower() == 'sunset':
+def makePalette(palette, steps):
+    if palette == '' or palette.lower() == 'sunset':
         return Sunset(steps)
-    elif fractal.lower() == 'thunderstorm':
+    elif palette.lower() == 'thunderstorm':
         return Thunderstorm(steps)
     else:
-        raise NotImplementedError(f"PaletteFactory cannot make a {fractal} palette")
+        raise NotImplementedError(f"PaletteFactory cannot make a {palette} palette")
