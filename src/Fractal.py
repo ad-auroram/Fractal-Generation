@@ -1,16 +1,24 @@
 
 class Fractal:
+
+    def __init__(self, info):
+        self.type = info["type"]
+        self.centerX = info["centerX"]
+        self.centerY = info["centerY"]
+        self.axislength = info["axisLength"]
+        self.pixels = info["pixels"]
+        self.iterations = info["iterations"]
+        self.min = info["min"]
+        self.max = info["max"]
+        self.pixelSize = info["pixelSize"]
+        self.name = info["name"]
     def count(self):
         raise NotImplementedError("Concrete subclass of Fractal must implement count() method")
 
 
-
-class Mandelbrot:
-    def __init__(self, centerX, centerY, iterations):
-        Fractal.__init__(self)
-        self.centerX = centerX
-        self.centerY = centerY
-        self.iterations = iterations
+class Mandelbrot(Fractal):
+    def __init__(self, info):
+        super().__init__(info)
 
     def count(self, c, end):
         """
@@ -27,12 +35,10 @@ class Mandelbrot:
     def iterations(self):
         return self.iterations
 
-class Phoenix:
-    def __init__(self, centerX, centerY, iterations):
-        Fractal.__init__(self)
-        self.centerX = centerX
-        self.centerY = centerY
-        self.iterations = iterations
+
+class Phoenix(Fractal):
+    def __init__(self, info):
+        super().__init__(info)
     def count(self, z, end):
         """
         Return the iteration count for a point on the complex plane `c`

@@ -22,4 +22,5 @@
 | December 5  | 1 hour     | Created FractalParser and started making Fractal classes.
 | December 6  | 1 hour     | Fixed palette to generate dynamically. Messed up ssh keys while trying to set up github. Now making commits from my sad little laptop. Fixed ssh key things and added to fractalparser to it would check for numeric values or raise errors as needed.
 | December 7  | 1 hour     | Created fractalFactory and paletteFactory. Started figuring out the order things would go in in main.
+| December 8  | .75 hour   | Fixed inheritance issues in Fractal and Palette. Pass fractal dictionary into Fractals to give them thir data now.
 | TOTAL       | 8 hours    | *Your TOTAL should agree with your daily entries*
