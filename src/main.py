@@ -24,38 +24,14 @@ import sys
 import PaletteFactory
 import FractalFactory
 import FractalParser
-from image_painter import paint
+from image_painter import ImagePainter
 
 
 if len(sys.argv) < 2:
-    #print ('Please provide the name of a fractal as an argument')
-    #for f in FRACTALS:
-     #   print(f"\t{f}")
-    #sys.exit(1)
     fractal = FractalFactory.makeFractal("")
     palette = PaletteFactory.makePalette("", fractal.iterations())
 
-#---------delete under here when done----------
 
-if sys.argv[1] not in FRACTALS:
-    print("ERROR:", sys.argv[1], "is not a valid fractal")
-    print("Please choose one of the following:")
-    for f in FRACTALS:
-        print(f"\t{f}")
-    sys.exit(1)
-
-name = sys.argv[1]
-fractal = FRACTALS[name]
-if fractal['type'] == 'mandelbrot':
-    palette = palette.MANDELBROT
-    count = Mandelbrot.count
-else:
-    palette = palette.PHOENIX
-    count = Phoenix.count
-
-paint(fractal, name, count, palette)
-
-#---------new main under here, delete above when done---------
 frac = sys.argv[1]
 info = FractalParser.parseFractal(frac)
 fractal = FractalFactory.makeFractal(info)
@@ -64,3 +40,5 @@ if len(sys.argv) == 3:
 else:
     colors = ""
 palette = PaletteFactory.makePalette(colors, info["iterations"])
+painter = ImagePainter(fractal,palette)
+ImagePainter.paint(painter)
