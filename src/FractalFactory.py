@@ -4,10 +4,10 @@ def makeFractal(fractalInfo):
     if fractalInfo == "":
         fractal = Mandelbrot(DEFAULT)
         return fractal
-    elif fractalInfo["type:"] == "mandelbrot":
+    elif fractalInfo["type"] == "mandelbrot":
         fractal = Mandelbrot(fractalInfo)
         return fractal
-    elif fractalInfo["type:"] == "phoenix":
+    elif fractalInfo["type"] == "phoenix":
         fractal = Phoenix(fractalInfo)
         return fractal
     else:
