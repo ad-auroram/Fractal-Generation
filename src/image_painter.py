@@ -42,7 +42,7 @@ class ImagePainter:
     def paint(self):
         """Paint a Fractal image into the TKinter PhotoImage canvas"""
 
-        print(f"Rendering {self.fractal['name']} fractal")
+        print(f"Rendering {self.fractal.name} fractal")
         # Note the time of when we started so we can measure performance improvements
         before = time.time()
 
@@ -53,28 +53,28 @@ class ImagePainter:
         canvas.create_image((self.IMAGE_SIZE/2.0,self.IMAGE_SIZE/2.0), image=img, state="normal")
         canvas.pack()
 
-        minx = self.fractal['min']['x']
-        miny = self.fractal["min"]["y"]
+        minx = self.fractal.minX
+        miny = self.fractal.minY
 
         # At this scale, how much length and height on the
         # imaginary plane does one pixel take?
-        pixelsize = self.fractal["pixelsize"]
+        pixelsize = self.fractal.pixelSize
 
-        max_iter = len(self.palette)
+        max_iter = len(self.palette.colors)
         for row in range(self.IMAGE_SIZE, 0, -1):
             cc = []
             for col in range(self.IMAGE_SIZE):
                 x = minx + col * pixelsize
                 y = miny + row * pixelsize
-                cc.append(self.palette[self.fractal["type"].count(complex(x, y), max_iter-1)])
+                cc.append(self.palette.getcolor(self.fractal.count(complex(x, y), max_iter-1)))
             img.put('{' + ' '.join(cc) + '}', to=(0, self.IMAGE_SIZE-row))
             win.update()  # display a row of pixels
             print(self.statusbar(row), end='\r', file=sys.stderr)  # the '\r' returns the cursor to the leftmost column
 
         after = time.time()
         print(f"\nDone in {after - before:.3f} seconds!", file=sys.stderr)
-        img.write(f"{self.fractal['name']}.png")
-        print(f"Wrote picture {self.fractal['name']}.png", file=sys.stderr)
+        img.write(f"{self.fractal.name}.png")
+        print(f"Wrote picture {self.fractal.name}.png", file=sys.stderr)
 
         print("Close the image window to exit the program", file=sys.stderr)
 

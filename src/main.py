@@ -29,14 +29,17 @@ from image_painter import ImagePainter
 
 if len(sys.argv) < 2:
     fractal = FractalFactory.makeFractal("")
-    palette = PaletteFactory.makePalette("", fractal.iterations())
+    palette = PaletteFactory.makePalette("", fractal.iterations)
+    painter = ImagePainter(fractal, palette)
+    ImagePainter.paint(painter)
+    exit(0)
 
 
-frac = sys.argv[1]
+frac = sys.argv[0]
 info = FractalParser.parseFractal(frac)
 fractal = FractalFactory.makeFractal(info)
-if len(sys.argv) == 3:
-    colors = sys.argv[2]
+if len(sys.argv) == 2:
+    colors = sys.argv[1]
 else:
     colors = ""
 palette = PaletteFactory.makePalette(colors, info["iterations"])

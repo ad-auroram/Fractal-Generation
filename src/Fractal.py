@@ -3,15 +3,15 @@ class Fractal:
 
     def __init__(self, info):
         self.type = info["type"]
-        self.centerX = info["centerX"]
-        self.centerY = info["centerY"]
-        self.axislength = info["axisLength"]
+        self.centerX = info["centerx"]
+        self.centerY = info["centery"]
+        self.axislength = info["axislength"]
         self.pixels = info["pixels"]
         self.iterations = info["iterations"]
-        self.min = info["min"]
-        self.max = info["max"]
-        self.pixelSize = info["pixelSize"]
-        self.name = info["name"]
+        self.minX = info["min"]["x"]
+        self.minY = info["min"]["y"]
+        self.pixelSize = info["pixelsize"]
+        self.name = info["imagename"]
     def count(self):
         raise NotImplementedError("Concrete subclass of Fractal must implement count() method")
 

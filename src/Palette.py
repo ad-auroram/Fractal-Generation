@@ -67,10 +67,10 @@ class Sunset(Palette):
         for color in list(white.range_to(purple, i))[1:]:
             sunset.append(color.hex_l)
 
-        self.palette = sunset
+        self.colors = sunset
 
     def getcolor(self, n):
-        return self.palette[n]
+        return self.colors[n]
 
 
 class Thunderstorm(Palette):
@@ -104,10 +104,10 @@ class Thunderstorm(Palette):
         for color in list(darkBlue.range_to(black, i))[1:]:
             thunderstorm.append(color.hex_l)
 
-        self.palette = thunderstorm
+        self.colors = thunderstorm
 
     def getcolor(self, n):
-        return self.palette[n]
+        return self.colors[n]
 
 
 
