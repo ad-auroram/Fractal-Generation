@@ -17,19 +17,19 @@ def makeFractal(fractalInfo):
 
 DEFAULT = {
     "type" : "mandelbrot",
-    "pixels" : 640,
-    "centerx": -1.0,
+    "pixels" : 512,
+    "centerx": -1.48,
     "centery" : 0.0,
-    "axislength" : 1.0,
-    "iterations" : 256,
-    "pixelsize" : 1/640,
+    "axislength" : 0.01,
+    "iterations" : 300,
+    "pixelsize" : 0.008/512,
     "min" : {
-        "x" : -1.0-(1.0/2),
-        "y" : 0 - (1.0/2)
+        "x" : -1.48-(0.01/2),
+        "y" : 0.0 - (0.01/2)
     },
     "max" : {
-        "x" : -1.0 + (1.0/2),
-        "y" : 0 + (1.0/2)
+        "x" : -1.48 + (0.01/2),
+        "y" : 0.0 + (0.01/2)
     },
-    "imagename" : "mandelbrot-zoomed"
+    "imagename" : "enhance"
 }
