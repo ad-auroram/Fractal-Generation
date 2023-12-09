@@ -23,5 +23,5 @@
 | December 6  | 1 hour      | Fixed palette to generate dynamically. Messed up ssh keys while trying to set up github. Now making commits from my sad little laptop. Fixed ssh key things and added to fractalparser to it would check for numeric values or raise errors as needed.
 | December 7  | 1 hour      | Created fractalFactory and paletteFactory. Started figuring out the order things would go in in main.
 | December 8  | .75 hour    | Fixed inheritance issues in Fractal and Palette. Pass fractal dictionary into Fractals to give them thir data now.
-| December 9  | 2 hour      | Wrote ImagePainter as a class. Bug fixed enough to get the default fractal to generate. Fixed more things and it can do mandelbrot and phoenix. Recording tests.
-| TOTAL       | 10.75 hours | *Your TOTAL should agree with your daily entries*
+| December 9  | 2.5 hour    | Wrote ImagePainter as a class. Bug fixed enough to get the default fractal to generate. Fixed more things and it can do mandelbrot and phoenix. Added Mandelbrot3 and Spider fractals. Recording tests.
+| TOTAL       | 11.25 hours | *Your TOTAL should agree with your daily entries*
