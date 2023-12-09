@@ -39,6 +39,10 @@ class Mandelbrot(Fractal):
 class Phoenix(Fractal):
     def __init__(self, info):
         super().__init__(info)
+        self.pReal = info["preal"]
+        self.pImag = info["pimag"]
+        self.cReal = info["creal"]
+        self.cImag = info["cimag"]
     def count(self, z, end):
         """
         Return the iteration count for a point on the complex plane `c`
@@ -46,10 +50,10 @@ class Phoenix(Fractal):
         """
 
         # Julia Constant
-        c = complex(0.5667, 0.0)
+        c = complex(self.cReal, self.cImag)
 
         # Phoenix Constant
-        p = complex(-0.5, 0.0)
+        p = complex(self.pReal, self.pImag)
 
         # The first thing we do to the complex number Z is reflect its components,
         # so the imaginary part becomes the real part, and vice versa.
