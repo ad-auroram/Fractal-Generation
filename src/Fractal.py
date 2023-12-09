@@ -76,3 +76,41 @@ class Phoenix(Fractal):
     def iterations(self):
         return self.iterations
 
+
+
+class Mandelbrot3(Fractal):
+    def __init__(self, info):
+        super().__init__(info)
+
+    def count(self, c, end):
+        """
+        Return the iteration count for a point on the complex plane `c`
+        to guess whether it is in the Mandelbrot set (bounded by `end`)
+        """
+        z = complex(0, 0)  # z0
+        for i in range(end):
+            z = z * z * z + c  # Get z1, z2, ...
+            if abs(z) > 2.0:
+                return i
+        return end
+
+    def iterations(self):
+        return self.iterations
+
+class Spider(Fractal):
+    def __init__(self, info):
+        super().__init__(info)
+
+    def count(self, c, end):
+        """
+        Return the iteration count for a point on the complex plane `c`
+        to guess whether it is in the Mandelbrot set (bounded by `end`)
+        """
+        z = complex(0, 0)  # z0
+        for i in range(end):
+            z = z * z + c  # Get z1, z2, ...
+            c = (c/2)+z
+            if abs(z) > 2.0:
+                return i
+        return end
+

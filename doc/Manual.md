@@ -1,6 +1,6 @@
 # Fractal Visualizer User Manual
 
-This program can produce Mandelbrot and Phoenix fractals.
+This program can produce Mandelbrot, Mandelbrot^3, Phoenix, and Spider fractals.
 
 
 To run the program, run the command 

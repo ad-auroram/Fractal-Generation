@@ -1,5 +1,5 @@
 #return a fractal object given the name of a fractal
-from Fractal import Mandelbrot, Phoenix
+from Fractal import Mandelbrot, Mandelbrot3, Phoenix, Spider
 def makeFractal(fractalInfo):
     if fractalInfo == "":
         fractal = Mandelbrot(DEFAULT)
@@ -9,6 +9,12 @@ def makeFractal(fractalInfo):
         return fractal
     elif fractalInfo["type"] == "phoenix":
         fractal = Phoenix(fractalInfo)
+        return fractal
+    elif fractalInfo["type"] == "mandelbrot3":
+        fractal = Mandelbrot3(fractalInfo)
+        return fractal
+    elif fractalInfo["type"] == "spider":
+        fractal = Spider(fractalInfo)
         return fractal
     else:
         raise NotImplementedError(f"FractalFactoryFactory cannot make that fractal!")
