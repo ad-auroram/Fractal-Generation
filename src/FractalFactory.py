@@ -31,5 +31,5 @@ DEFAULT = {
         "x" : -1.48 + (0.01/2),
         "y" : 0.0 + (0.01/2)
     },
-    "imagename" : "enhance"
+    "imagename" : "default"
 }

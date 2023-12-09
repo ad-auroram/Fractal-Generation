@@ -1,5 +1,6 @@
 # Fractal Visualizer User Manual
 
+This program can produce Mandelbrot and Phoenix fractals.
 
 
 To run the program, run the command 
@@ -17,13 +18,12 @@ When no arguments are given, the program will create a default fractal.
 
 ```
 $ python src/main.py
-FractalFactory: Creating default fractal
-PaletteFactory: Creating default color palette
 [100% =================================]
-Done in 1.266 seconds!
-Wrote image default.png
+Done in 2.754 seconds!
+Wrote picture default.png
 Close the image window to exit the program
-
+Creating Sunset palette
+Rendering default fractal
 ```
 
 When a valid fractal name is given, the program will open a window to render the image, and then save the image as a png.
@@ -32,22 +32,24 @@ The pngs follow the naming convention of fractal name + .png. Existing pngs will
 When run with one argument, the name of a fractal configuration file should be given. A default palette will be used.
 
 ```
-$ python src/main.py data/julia.frac
-PaletteFactory: Creating default color palette
+$ python src/main.py data/spiral0.frac
 [100% =================================]
-Done in 2.026 seconds!
-Wrote image julia.png
+Done in 4.507 seconds!
+Wrote picture spiral0.png
 Close the image window to exit the program
+Creating Sunset palette
+Rendering spiral0 fractal
 ```
 
 When run with two arguments, the first will be the name of the fractal configuration file, and the second will be the name of a palette.
 ```
 $ python src/main.py data/monkey-knife-fight.frac thunderstorm
 [100% =================================]
-Done in 3.691 seconds!
-Wrote image monkey-knife-fight.png
+Done in 2.503 seconds!
+Wrote picture monkey-knife-fight.png
 Close the image window to exit the program
-
+Creating Thunderstorm Palette
+Rendering monkey-knife-fight fractal
 ```
 
 If a missing or inaccessible fractal configuration file is given, the program will exit with the error raised by open().
