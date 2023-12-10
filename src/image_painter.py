@@ -26,7 +26,7 @@ class ImagePainter:
     def __init__(self, fractal, palette):
         self.fractal = fractal
         self.palette = palette
-        self.IMAGE_SIZE = 512
+        self.IMAGE_SIZE = fractal.pixels
         self.STATUS_BAR_WIDTH = 34
 
 

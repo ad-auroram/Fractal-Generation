@@ -33,7 +33,7 @@ class Sunset(Palette):
     def __init__(self, iteration):
         super().__init__(iteration)
         numColorSteps = 12
-        i = math.ceil(self.iteration / numColorSteps)
+        i = math.ceil(self.iteration/numColorSteps+1)
 
         purple = colour.Color("#1F214D")
         white = colour.Color("#FFFFFF")
@@ -77,7 +77,7 @@ class Thunderstorm(Palette):
     def __init__(self, iteration):
         super().__init__(iteration)
         numColorSteps = 8
-        i = math.ceil(self.iteration / numColorSteps)
+        i = math.ceil(self.iteration / numColorSteps+1)
 
         darkBlue = colour.Color("#0D1B2A")
         white = colour.Color("#FFFFFF")

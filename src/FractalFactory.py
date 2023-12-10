@@ -51,7 +51,7 @@ def makeFractal(fractalInfo):
         raise NotImplementedError(f"FractalFactory cannot make that fractal!")
 
 
-
+#enhance fractal
 DEFAULT = {
     "type" : "mandelbrot",
     "pixels" : 512,
@@ -59,7 +59,7 @@ DEFAULT = {
     "centery" : 0.0,
     "axislength" : 0.01,
     "iterations" : 300,
-    "pixelsize" : 0.008/512,
+    "pixelsize" : 0.01/512,
     "min" : {
         "x" : -1.48-(0.01/2),
         "y" : 0.0 - (0.01/2)
