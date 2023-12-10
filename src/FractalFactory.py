@@ -17,7 +17,7 @@ def makeFractal(fractalInfo):
         fractal = Spider(fractalInfo)
         return fractal
     else:
-        raise NotImplementedError(f"FractalFactoryFactory cannot make that fractal!")
+        raise NotImplementedError(f"FractalFactory cannot make that fractal!")
 
 
 
