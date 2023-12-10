@@ -7,15 +7,36 @@ def makeFractal(fractalInfo):
     elif fractalInfo["type"] == "mandelbrot":
         fractal = Mandelbrot(fractalInfo)
         return fractal
+
     elif fractalInfo["type"] == "phoenix":
+
+        try:
+            fractalInfo["preal"] = float(fractalInfo["preal"])
+        except ValueError:
+            raise ValueError("pReal should be a float!")
+        try:
+            fractalInfo["creal"] = float(fractalInfo["creal"])
+        except ValueError:
+            raise ValueError("cReal should be a float!")
+        try:
+            fractalInfo["pimag"] = float(fractalInfo["pimag"])
+        except ValueError:
+            raise ValueError("pImag should be a float!")
+        try:
+            fractalInfo["cimag"] = float(fractalInfo["cimag"])
+        except ValueError:
+            raise ValueError("cImag should be a float!")
         fractal = Phoenix(fractalInfo)
         return fractal
+
     elif fractalInfo["type"] == "mandelbrot3":
         fractal = Mandelbrot3(fractalInfo)
         return fractal
+
     elif fractalInfo["type"] == "spider":
         fractal = Spider(fractalInfo)
         return fractal
+    
     else:
         raise NotImplementedError(f"FractalFactory cannot make that fractal!")
 

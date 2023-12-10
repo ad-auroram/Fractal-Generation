@@ -47,33 +47,6 @@ def parseFractal(filename):
     name = Path(filename)
     fractal["imagename"] = name.stem
 
-    if fractal["type"] == "phoenix":
-        try:
-            fractal["preal"] = float(fractal["preal"])
-        except ValueError:
-            raise ValueError("pReal should be a float!")
-        try:
-            fractal["creal"] = float(fractal["creal"])
-        except ValueError:
-            raise ValueError("cReal should be a float!")
-        try:
-            fractal["pimag"] = float(fractal["pimag"])
-        except ValueError:
-            raise ValueError("pImag should be a float!")
-        try:
-            fractal["cimag"] = float(fractal["cimag"])
-        except ValueError:
-            raise ValueError("cImag should be a float!")
-
-    if fractal["type"] == "julia":
-        try:
-            fractal["creal"] = float(fractal["creal"])
-        except ValueError:
-            raise ValueError("cReal should be a float!")
-        try:
-            fractal["cimag"] = float(fractal["cimag"])
-        except ValueError:
-            raise ValueError("cImag should be a float!")
 
     return fractal
     
