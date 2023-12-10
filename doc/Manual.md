@@ -53,4 +53,7 @@ Rendering monkey-knife-fight fractal
 ```
 
 If a missing or inaccessible fractal configuration file is given, the program will exit with the error raised by open().
-If an invalid palette name is given, the program will exit with NotImplementedError.
+Make sure you've input the correct file name, and everything is spelled correctly.
+
+If an invalid palette name is given, the program will exit with NotImplementedError. Refer to the above list of valid palettes or
+make sure everything is spelled properly.
