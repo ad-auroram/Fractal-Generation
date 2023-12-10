@@ -1,5 +1,12 @@
 #return a fractal object given the name of a fractal
 from Fractal import Mandelbrot, Mandelbrot3, Phoenix, Spider
+
+def keyCheck(dict, key):
+    if key in dict:
+        return True
+    else:
+        return False
+
 def makeFractal(fractalInfo):
     if fractalInfo == "":
         fractal = Mandelbrot(DEFAULT)
@@ -7,9 +14,13 @@ def makeFractal(fractalInfo):
     elif fractalInfo["type"] == "mandelbrot":
         fractal = Mandelbrot(fractalInfo)
         return fractal
-
+    
     elif fractalInfo["type"] == "phoenix":
-
+        requiredKeys = ("preal", "pimag", "creal", "cimag")
+        for key in requiredKeys:
+            if not keyCheck(fractalInfo, key):
+                raise RuntimeError(f"The required parameter {key} is missing")
+        
         try:
             fractalInfo["preal"] = float(fractalInfo["preal"])
         except ValueError:
@@ -28,7 +39,7 @@ def makeFractal(fractalInfo):
             raise ValueError("cImag should be a float!")
         fractal = Phoenix(fractalInfo)
         return fractal
-
+    
     elif fractalInfo["type"] == "mandelbrot3":
         fractal = Mandelbrot3(fractalInfo)
         return fractal
@@ -36,7 +47,6 @@ def makeFractal(fractalInfo):
     elif fractalInfo["type"] == "spider":
         fractal = Spider(fractalInfo)
         return fractal
-
     else:
         raise NotImplementedError(f"FractalFactory cannot make that fractal!")
 
