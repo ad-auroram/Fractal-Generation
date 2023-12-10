@@ -57,3 +57,6 @@ Make sure you've input the correct file name, and everything is spelled correctl
 
 If an invalid palette name is given, the program will exit with NotImplementedError. Refer to the above list of valid palettes or
 make sure everything is spelled properly.
+
+If the fractal file is missing a parameter's value, it will raise a RuntimeError. Make sure each parameter in the file has 
+a value assigned to it, separated by ":"

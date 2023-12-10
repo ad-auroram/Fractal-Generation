@@ -9,7 +9,10 @@ def parseFractal(filename):
             continue
         line = line.lower().strip()
         key = line.split(":")
-        key[1] = key[1].replace(" ", "")
+        try:
+            key[1] = key[1].replace(" ", "")
+        except IndexError:
+            raise RuntimeError(f"The value of the {key[0]} parameter is missing")
         fractal[key[0]] = key[1]
 
     try:

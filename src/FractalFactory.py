@@ -36,7 +36,7 @@ def makeFractal(fractalInfo):
     elif fractalInfo["type"] == "spider":
         fractal = Spider(fractalInfo)
         return fractal
-    
+
     else:
         raise NotImplementedError(f"FractalFactory cannot make that fractal!")
 
