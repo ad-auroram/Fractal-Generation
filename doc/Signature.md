@@ -24,4 +24,5 @@
 | December 7  | 1 hour      | Created fractalFactory and paletteFactory. Started figuring out the order things would go in in main.
 | December 8  | .75 hour    | Fixed inheritance issues in Fractal and Palette. Pass fractal dictionary into Fractals to give them thir data now.
 | December 9  | 2.5 hour    | Wrote ImagePainter as a class. Bug fixed enough to get the default fractal to generate. Fixed more things and it can do mandelbrot and phoenix. Added Mandelbrot3 and Spider fractals. Recording tests.
-| TOTAL       | 11.25 hours | *Your TOTAL should agree with your daily entries*
+| December 10 | 1.5 hour    | Ran tests with remaining fractals and invalid.frac. 
+| TOTAL       | 12.75 hours | *Your TOTAL should agree with your daily entries*
