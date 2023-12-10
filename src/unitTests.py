@@ -32,11 +32,11 @@ class Tests(unittest.TestCase):
             "imagename" : "mandelbrot"
         }
 
-        self.assertEqual(parseFractal("mandelbrot.frac"), mandelbrot)
+        self.assertEqual(parseFractal("test-file/mandelbrot.frac"), mandelbrot)
 
     def testDefault(self):
         fractal1 = makeFractal("")
-        fractal2 = makeFractal(parseFractal("enhance.frac"))
+        fractal2 = makeFractal(parseFractal("test-file/enhance.frac"))
         self.assertEqual(fractal1.type,fractal2.type)
         self.assertEqual(fractal1.pixels, fractal2.pixels)
         self.assertEqual(fractal1.iterations, fractal2.iterations)
