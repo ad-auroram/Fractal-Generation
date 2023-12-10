@@ -2,7 +2,7 @@
 import unittest
 from FractalParser import parseFractal
 from PaletteFactory import makePalette
-from Fractal import Mandelbrot
+from FractalFactory import makeFractal
 
 class Tests(unittest.TestCase):
 
@@ -34,5 +34,9 @@ class Tests(unittest.TestCase):
 
         self.assertEqual(parseFractal("mandelbrot.frac"), mandelbrot)
 
-    def testCount(self):
-        pass
+    def testDefault(self):
+        fractal1 = makeFractal("")
+        fractal2 = makeFractal(parseFractal("enhance.frac"))
+        self.assertEqual(fractal1.type,fractal2.type)
+        self.assertEqual(fractal1.pixels, fractal2.pixels)
+        self.assertEqual(fractal1.iterations, fractal2.iterations)
